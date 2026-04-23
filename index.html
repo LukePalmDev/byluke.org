@@ -28,6 +28,7 @@
       background: linear-gradient(-45deg, #0d1117, #1a1040, #0d2137, #1a0d2e);
       background-size: 400% 400%;
       animation: bgShift 18s ease infinite;
+      will-change: background-position;
       position: relative;
     }
 
@@ -48,6 +49,7 @@
         radial-gradient(ellipse 40% 40% at 50% 80%, rgba(236,72,153,0.12) 0%, transparent 70%),
         radial-gradient(ellipse 55% 45% at 70% 70%, rgba(16,185,129,0.08) 0%, transparent 70%);
       animation: blobsFloat 22s ease-in-out infinite;
+      will-change: transform;
       pointer-events: none;
       z-index: 0;
     }
