@@ -200,14 +200,13 @@ const cats = [
       { name: 'Qwen Studio',    url: 'https://chat.qwen.ai',                 icon: '🧬', c: '#7c3aed', tag: 'Alibaba' },
       { name: 'ERNIE',          url: 'https://yiyan.baidu.com',              icon: '🔵', c: '#2563eb', tag: 'Baidu' },
       { name: 'Kimi',           url: 'https://kimi.ai',                      icon: '🌙', c: '#0f766e', tag: 'Moonshot AI' },
-      { name: 'INTELLECT-3',    url: 'https://primeintellect.ai',            icon: '🧠', c: '#4c1d95', tag: 'Prime Intellect' },
-      { name: 'Inception Chat', url: 'https://inceptionlabs.ai',             icon: '🔮', c: '#1e3a8a', tag: 'Inception' },
+      { name: 'INTELLECT-3',    url: 'https://chat.primeintellect.ai/',      icon: '🧠', c: '#4c1d95', tag: 'Prime Intellect' },
+      { name: 'Inception Chat', url: 'https://chat.inceptionlabs.ai',         icon: '🔮', c: '#1e3a8a', tag: 'Inception' },
       // ordine alfabetico
       { name: 'Copilot',        url: 'https://copilot.microsoft.com',        icon: '🪟', c: '#0067b8', tag: 'Microsoft' },
       { name: 'HuggingChat',    url: 'https://huggingface.co/chat',          icon: '🤗', c: '#b45309', tag: 'HuggingFace' },
       { name: 'Le Chat',        url: 'https://chat.mistral.ai',              icon: '🌀', c: '#b35000', tag: 'Mistral AI' },
       { name: 'Meta AI',        url: 'https://www.meta.ai',                  icon: '🦙', c: '#0055c8', tag: 'Meta' },
-      { name: 'Perplexity',     url: 'https://www.perplexity.ai',            icon: '🔍', c: '#1a6e78', tag: 'Search AI' },
       { name: 'Pi',             url: 'https://pi.ai',                        icon: '🧠', c: '#0e7490', tag: 'Inflection' },
       { name: 'Poe',            url: 'https://poe.com',                      icon: '🎯', c: '#6d28d9', tag: 'Quora' },
     ]
@@ -233,7 +232,6 @@ const cats = [
     desc: 'Generazione di immagini e video con AI',
     tools: [
       { name: 'Midjourney',        url: 'https://www.midjourney.com',    icon: '🎨', c: '#3730a3', tag: 'Immagini' },
-      { name: 'DALL·E 3',          url: 'https://labs.openai.com',       icon: '🖼️', c: '#3b0e8c', tag: 'OpenAI' },
       { name: 'Stable Diffusion',  url: 'https://dreamstudio.ai',        icon: '🌈', c: '#c2410c', tag: 'Stability AI' },
       { name: 'Adobe Firefly',     url: 'https://firefly.adobe.com',     icon: '🔥', c: '#b91c1c', tag: 'Adobe' },
       { name: 'Leonardo AI',       url: 'https://leonardo.ai',           icon: '🎭', c: '#5b21b6', tag: 'Immagini' },
@@ -242,20 +240,18 @@ const cats = [
       { name: 'Pika',              url: 'https://pika.art',              icon: '⚡', c: '#6b21a8', tag: 'Video' },
       { name: 'Sora',              url: 'https://sora.com',              icon: '🎥', c: '#065f46', tag: 'OpenAI' },
       { name: 'Kling AI',          url: 'https://klingai.com',           icon: '🎞️', c: '#4c1d95', tag: 'Video' },
-      { name: 'Canva AI',          url: 'https://www.canva.com',         icon: '🖌️', c: '#0e7490', tag: 'Design' },
       { name: 'Flux',              url: 'https://flux1.ai',              icon: '🌀', c: '#6d28d9', tag: 'Immagini' },
       { name: 'Google AI Studio',  url: 'https://aistudio.google.com',   icon: '✨', c: '#1558d6', tag: 'Google' },
       { name: 'Suno',              url: 'https://suno.com',              icon: '🎵', c: '#c2410c', tag: 'Musica' },
       { name: 'Speaktor',          url: 'https://speaktor.com',          icon: '🗣️', c: '#6d28d9', tag: 'Text to Speech' },
       { name: 'Lovart',            url: 'https://lovart.ai',             icon: '🎨', c: '#374151', tag: 'Design' },
-      { name: 'ElevenLabs',        url: 'https://elevenlabs.io',         icon: '🔊', c: '#1f2937', tag: 'Voce' },
     ]
   },
   {
-    id: 'presentazioni',
-    name: 'Presentazioni',
-    icon: '📊',
-    desc: 'Slide e presentazioni generate con AI',
+    id: 'slide',
+    name: 'Slide',
+    icon: '📑',
+    desc: 'Strumenti per creare presentazioni e slide',
     tools: [
       { name: 'Gamma',        url: 'https://gamma.app',                  icon: '✨', c: '#5b21b6', tag: 'Slide' },
       { name: 'Beautiful.ai', url: 'https://www.beautiful.ai',           icon: '💎', c: '#075985', tag: 'Slide' },
@@ -265,16 +261,7 @@ const cats = [
       { name: 'SlidesAI',     url: 'https://www.slidesai.io',            icon: '📋', c: '#14532d', tag: 'Google Slides' },
       { name: 'MagicSlides',  url: 'https://www.magicslides.app',        icon: '🪄', c: '#9d174d', tag: 'Slide' },
       { name: 'Pitch',        url: 'https://pitch.com',                  icon: '🎯', c: '#0f766e', tag: 'Slide' },
-    ]
-  },
-  {
-    id: 'slide',
-    name: 'Slide',
-    icon: '📑',
-    desc: 'Strumenti per creare presentazioni e slide',
-    tools: [
-      { name: 'Gamma',  url: 'https://gamma.app',   icon: '✨', c: '#5b21b6', tag: 'Slide' },
-      { name: 'Prezi',  url: 'https://prezi.com',   icon: '🔵', c: '#0073e6', tag: 'Slide' },
+      { name: 'Prezi',        url: 'https://prezi.com',                  icon: '🔵', c: '#0073e6', tag: 'Slide' },
     ]
   },
   {
@@ -294,7 +281,7 @@ const cats = [
       { name: 'Codeium',        url: 'https://codeium.com',                  icon: '💡', c: '#14532d', tag: 'Assistente' },
       { name: 'Tabnine',        url: 'https://www.tabnine.com',              icon: '📝', c: '#3730a3', tag: 'Assistente' },
       { name: 'Whisk',          url: 'https://labs.google/fx/tools/whisk',   icon: '🌀', c: '#1558d6', tag: 'Google Labs' },
-      { name: 'Stitch',         url: 'https://stitch.withgoogle.com',        icon: '🧵', c: '#0f766e', tag: 'Google' },
+      { name: 'Stitch',         url: 'https://stitch.withgoogle.com/',       icon: '🧵', c: '#0f766e', tag: 'Google' },
       { name: 'Google Labs',    url: 'https://labs.google',                  icon: '🔬', c: '#b91c1c', tag: 'Google' },
     ]
   },
@@ -307,7 +294,6 @@ const cats = [
       { name: 'Jasper',     url: 'https://www.jasper.ai',       icon: '🚀', c: '#9a3412', tag: 'Copy' },
       { name: 'Copy.ai',    url: 'https://www.copy.ai',          icon: '📄', c: '#3730a3', tag: 'Copy' },
       { name: 'Writesonic', url: 'https://writesonic.com',       icon: '⚡', c: '#5b21b6', tag: 'Copy' },
-      { name: 'Notion AI',  url: 'https://www.notion.so',        icon: '📓', c: '#1f2937', tag: 'Docs' },
       { name: 'Grammarly',  url: 'https://www.grammarly.com',    icon: '✅', c: '#14532d', tag: 'Grammar' },
       { name: 'Quillbot',   url: 'https://quillbot.com',         icon: '🪶', c: '#065f46', tag: 'Paraphrase' },
       { name: 'Rytr',       url: 'https://rytr.me',              icon: '🖊️', c: '#4c1d95', tag: 'Copy' },
@@ -335,7 +321,6 @@ const cats = [
       { name: 'Make',        url: 'https://www.make.com',          icon: '🔗', c: '#4c1d95', tag: 'Automazione' },
       { name: 'Otter.ai',    url: 'https://otter.ai',             icon: '🎙️', c: '#3730a3', tag: 'Trascrizione' },
       { name: 'Fireflies',   url: 'https://fireflies.ai',         icon: '🦋', c: '#5b21b6', tag: 'Meeting' },
-      { name: 'ElevenLabs',  url: 'https://elevenlabs.io',         icon: '🔊', c: '#1f2937', tag: 'Voce' },
       { name: 'Murf AI',     url: 'https://murf.ai',              icon: '🎤', c: '#78350f', tag: 'Voce' },
       { name: 'Taskade',     url: 'https://www.taskade.com',       icon: '✅', c: '#14532d', tag: 'Task' },
       { name: 'Reclaim AI',  url: 'https://reclaim.ai',            icon: '📅', c: '#4c1d95', tag: 'Calendario' },
