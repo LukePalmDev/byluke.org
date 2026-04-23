@@ -425,7 +425,7 @@ const mainEl = document.getElementById('main');
 cats.forEach((cat, i) => {
   // Tab
   const btn = document.createElement('button');
-  btn.className = 'tab' + (i === 0 ? ' active' : '');
+  btn.className = 'tab';
   btn.innerHTML = `${cat.icon} ${cat.name}`;
   btn.dataset.id = cat.id;
   btn.addEventListener('click', () => show(cat.id));
@@ -433,7 +433,7 @@ cats.forEach((cat, i) => {
 
   // Page
   const page = document.createElement('section');
-  page.className = 'page' + (i === 0 ? ' active' : '');
+  page.className = 'page';
   page.id = 'p-' + cat.id;
   page.innerHTML = `
     <div class="page-header">
@@ -454,12 +454,23 @@ cats.forEach((cat, i) => {
 });
 
 function show(id) {
+  const validId = cats.find(c => c.id === id) ? id : cats[0].id;
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
-  document.getElementById('p-' + id).classList.add('active');
-  document.querySelector(`[data-id="${id}"]`).classList.add('active');
+  document.getElementById('p-' + validId).classList.add('active');
+  document.querySelector(`[data-id="${validId}"]`).classList.add('active');
+  if (window.location.hash !== '#' + validId) window.location.hash = validId;
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+window.addEventListener('hashchange', () => {
+  const id = window.location.hash.slice(1);
+  show(id);
+});
+
+// init from URL hash or default to first category
+const initId = window.location.hash.slice(1);
+show(initId || cats[0].id);
 </script>
 
 </body>
