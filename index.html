@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Il catalogo completo degli strumenti AI — by Luke">
+  <title>byluke.org — AI Hub</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: rgba(255,255,255,0.07);
+      --text: #e6edf3;
+      --muted: #7d8590;
+      --accent: #58a6ff;
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(13,17,23,0.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      height: 60px;
+    }
+
+    .logo {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+    .logo span { color: var(--accent); }
+
+    /* ── Nav tabs ── */
+    nav {
+      display: flex;
+      gap: 0.15rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      flex: 1;
+    }
+    nav::-webkit-scrollbar { display: none; }
+
+    .tab {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+      font-family: inherit;
+    }
+    .tab:hover { background: rgba(255,255,255,0.06); color: var(--text); }
+    .tab.active { background: rgba(88,166,255,0.12); color: var(--accent); }
+
+    /* ── Main ── */
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 5rem;
+    }
+
+    .page { display: none; }
+    .page.active {
+      display: block;
+      animation: fadeUp 0.2s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-header { margin-bottom: 1.75rem; }
+    .page-header h1 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.03em; }
+    .page-header p  { font-size: 0.825rem; color: var(--muted); margin-top: 0.3rem; }
+
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+      gap: 0.8rem;
+    }
+
+    /* ── Tool card (colored button) ── */
+    .tool {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1.25rem 0.75rem 1rem;
+      min-height: 108px;
+      border-radius: var(--radius);
+      background: var(--c, #21262d);
+      color: rgba(255,255,255,0.95);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.09);
+      transition: transform 0.14s ease, filter 0.14s ease, box-shadow 0.14s ease;
+      overflow: hidden;
+    }
+    .tool::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0);
+      transition: background 0.14s;
+    }
+    .tool:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.15);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    }
+    .tool:active { transform: translateY(-1px); filter: brightness(0.95); }
+
+    .t-icon { font-size: 1.7rem; line-height: 1; }
+    .t-name { font-size: 0.8rem; font-weight: 700; text-align: center; line-height: 1.25; }
+    .t-tag  { font-size: 0.65rem; opacity: 0.6; text-align: center; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 520px) {
+      .header-inner { gap: 0.75rem; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 0.6rem; }
+      .page-header h1 { font-size: 1.2rem; }
+      main { padding: 1.5rem 1rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">by<span>luke</span>.org</a>
+    <nav id="nav"></nav>
+  </div>
+</header>
+
+<main id="main"></main>
+
+<footer>byluke.org — aggiornato 2025 · fatto con ❤️ da Luke</footer>
+
+<script>
+const cats = [
+  {
+    id: 'llm',
+    name: 'LLM',
+    icon: '💬',
+    desc: 'Chatbot e modelli linguistici AI',
+    tools: [
+      { name: 'ChatGPT',     url: 'https://chat.openai.com',         icon: '🟢', c: '#0d7a5f', tag: 'OpenAI' },
+      { name: 'Claude',      url: 'https://claude.ai',               icon: '🤖', c: '#b05a3a', tag: 'Anthropic' },
+      { name: 'Gemini',      url: 'https://gemini.google.com',       icon: '🔷', c: '#1558d6', tag: 'Google' },
+      { name: 'Perplexity',  url: 'https://www.perplexity.ai',       icon: '🔍', c: '#1a6e78', tag: 'Search AI' },
+      { name: 'Grok',        url: 'https://grok.com',                icon: '⚡', c: '#374151', tag: 'xAI' },
+      { name: 'Le Chat',     url: 'https://chat.mistral.ai',         icon: '🌀', c: '#b35000', tag: 'Mistral AI' },
+      { name: 'Meta AI',     url: 'https://www.meta.ai',             icon: '🦙', c: '#0055c8', tag: 'Meta' },
+      { name: 'Copilot',     url: 'https://copilot.microsoft.com',   icon: '🪟', c: '#0067b8', tag: 'Microsoft' },
+      { name: 'DeepSeek',    url: 'https://chat.deepseek.com',       icon: '🌊', c: '#1d4ed8', tag: 'DeepSeek' },
+      { name: 'Poe',         url: 'https://poe.com',                 icon: '🎯', c: '#6d28d9', tag: 'Quora' },
+      { name: 'HuggingChat', url: 'https://huggingface.co/chat',     icon: '🤗', c: '#b45309', tag: 'HuggingFace' },
+      { name: 'Pi',          url: 'https://pi.ai',                   icon: '🧠', c: '#0e7490', tag: 'Inflection' },
+    ]
+  },
+  {
+    id: 'media',
+    name: 'Immagini & Video',
+    icon: '🎨',
+    desc: 'Generazione di immagini e video con AI',
+    tools: [
+      { name: 'Midjourney',        url: 'https://www.midjourney.com',    icon: '🎨', c: '#3730a3', tag: 'Immagini' },
+      { name: 'DALL·E 3',          url: 'https://labs.openai.com',       icon: '🖼️', c: '#3b0e8c', tag: 'OpenAI' },
+      { name: 'Stable Diffusion',  url: 'https://dreamstudio.ai',        icon: '🌈', c: '#c2410c', tag: 'Stability AI' },
+      { name: 'Adobe Firefly',     url: 'https://firefly.adobe.com',     icon: '🔥', c: '#b91c1c', tag: 'Adobe' },
+      { name: 'Leonardo AI',       url: 'https://leonardo.ai',           icon: '🎭', c: '#5b21b6', tag: 'Immagini' },
+      { name: 'Ideogram',          url: 'https://ideogram.ai',           icon: '✍️', c: '#075985', tag: 'Immagini' },
+      { name: 'Runway',            url: 'https://runwayml.com',          icon: '🎬', c: '#1f2937', tag: 'Video' },
+      { name: 'Pika',              url: 'https://pika.art',              icon: '⚡', c: '#6b21a8', tag: 'Video' },
+      { name: 'Sora',              url: 'https://sora.com',              icon: '🎥', c: '#065f46', tag: 'OpenAI' },
+      { name: 'Kling AI',          url: 'https://klingai.com',           icon: '🎞️', c: '#4c1d95', tag: 'Video' },
+      { name: 'Canva AI',          url: 'https://www.canva.com',         icon: '🖌️', c: '#0e7490', tag: 'Design' },
+      { name: 'Flux',              url: 'https://flux1.ai',              icon: '🌀', c: '#6d28d9', tag: 'Immagini' },
+    ]
+  },
+  {
+    id: 'presentazioni',
+    name: 'Presentazioni',
+    icon: '📊',
+    desc: 'Slide e presentazioni generate con AI',
+    tools: [
+      { name: 'Gamma',        url: 'https://gamma.app',                  icon: '✨', c: '#5b21b6', tag: 'Slide' },
+      { name: 'Beautiful.ai', url: 'https://www.beautiful.ai',           icon: '💎', c: '#075985', tag: 'Slide' },
+      { name: 'Tome',         url: 'https://tome.app',                   icon: '📖', c: '#1f2937', tag: 'Slide' },
+      { name: 'Plus AI',      url: 'https://www.plusdocs.com',           icon: '➕', c: '#92400e', tag: 'Google Slides' },
+      { name: 'Decktopus',    url: 'https://www.decktopus.com',          icon: '🐙', c: '#3730a3', tag: 'Slide' },
+      { name: 'SlidesAI',     url: 'https://www.slidesai.io',            icon: '📋', c: '#14532d', tag: 'Google Slides' },
+      { name: 'MagicSlides',  url: 'https://www.magicslides.app',        icon: '🪄', c: '#9d174d', tag: 'Slide' },
+      { name: 'Pitch',        url: 'https://pitch.com',                  icon: '🎯', c: '#0f766e', tag: 'Slide' },
+    ]
+  },
+  {
+    id: 'codice',
+    name: 'Codice',
+    icon: '💻',
+    desc: 'Strumenti AI per sviluppatori',
+    tools: [
+      { name: 'GitHub Copilot', url: 'https://github.com/features/copilot', icon: '🐙', c: '#1f2937', tag: 'IDE' },
+      { name: 'Cursor',         url: 'https://cursor.com',                   icon: '🖱️', c: '#0f172a', tag: 'IDE' },
+      { name: 'Replit AI',      url: 'https://replit.com',                   icon: '🔄', c: '#c2410c', tag: 'IDE' },
+      { name: 'v0',             url: 'https://v0.dev',                        icon: '▲', c: '#18181b', tag: 'Vercel' },
+      { name: 'Bolt',           url: 'https://bolt.new',                     icon: '⚡', c: '#92400e', tag: 'App builder' },
+      { name: 'Windsurf',       url: 'https://codeium.com/windsurf',         icon: '🏄', c: '#0c4a6e', tag: 'IDE' },
+      { name: 'Lovable',        url: 'https://lovable.dev',                  icon: '❤️', c: '#9d174d', tag: 'App builder' },
+      { name: 'Claude Code',    url: 'https://claude.ai/code',               icon: '🤖', c: '#b05a3a', tag: 'CLI' },
+      { name: 'Codeium',        url: 'https://codeium.com',                  icon: '💡', c: '#14532d', tag: 'Assistente' },
+      { name: 'Tabnine',        url: 'https://www.tabnine.com',              icon: '📝', c: '#3730a3', tag: 'Assistente' },
+    ]
+  },
+  {
+    id: 'scrittura',
+    name: 'Scrittura',
+    icon: '✍️',
+    desc: 'Copywriting e content creation AI',
+    tools: [
+      { name: 'Jasper',     url: 'https://www.jasper.ai',       icon: '🚀', c: '#9a3412', tag: 'Copy' },
+      { name: 'Copy.ai',    url: 'https://www.copy.ai',          icon: '📄', c: '#3730a3', tag: 'Copy' },
+      { name: 'Writesonic', url: 'https://writesonic.com',       icon: '⚡', c: '#5b21b6', tag: 'Copy' },
+      { name: 'Notion AI',  url: 'https://www.notion.so',        icon: '📓', c: '#1f2937', tag: 'Docs' },
+      { name: 'Grammarly',  url: 'https://www.grammarly.com',    icon: '✅', c: '#14532d', tag: 'Grammar' },
+      { name: 'Quillbot',   url: 'https://quillbot.com',         icon: '🪶', c: '#065f46', tag: 'Paraphrase' },
+      { name: 'Rytr',       url: 'https://rytr.me',              icon: '🖊️', c: '#4c1d95', tag: 'Copy' },
+      { name: 'Sudowrite',  url: 'https://www.sudowrite.com',    icon: '📚', c: '#78350f', tag: 'Narrativa' },
+    ]
+  },
+  {
+    id: 'produttivita',
+    name: 'Produttività',
+    icon: '⚙️',
+    desc: 'Automazione, voce e strumenti AI per il lavoro',
+    tools: [
+      { name: 'Zapier AI',   url: 'https://zapier.com',            icon: '⚡', c: '#9a3412', tag: 'Automazione' },
+      { name: 'Make',        url: 'https://www.make.com',          icon: '🔗', c: '#4c1d95', tag: 'Automazione' },
+      { name: 'Otter.ai',    url: 'https://otter.ai',             icon: '🎙️', c: '#3730a3', tag: 'Trascrizione' },
+      { name: 'Fireflies',   url: 'https://fireflies.ai',         icon: '🦋', c: '#5b21b6', tag: 'Meeting' },
+      { name: 'ElevenLabs',  url: 'https://elevenlabs.io',         icon: '🔊', c: '#1f2937', tag: 'Voce' },
+      { name: 'Murf AI',     url: 'https://murf.ai',              icon: '🎤', c: '#78350f', tag: 'Voce' },
+      { name: 'Taskade',     url: 'https://www.taskade.com',       icon: '✅', c: '#14532d', tag: 'Task' },
+      { name: 'Reclaim AI',  url: 'https://reclaim.ai',            icon: '📅', c: '#4c1d95', tag: 'Calendario' },
+      { name: 'Motion',      url: 'https://www.usemotion.com',    icon: '🏃', c: '#075985', tag: 'Calendario' },
+      { name: 'Mem.ai',      url: 'https://mem.ai',               icon: '🧠', c: '#0c4a6e', tag: 'Note' },
+    ]
+  },
+];
+
+const navEl  = document.getElementById('nav');
+const mainEl = document.getElementById('main');
+
+cats.forEach((cat, i) => {
+  // Tab
+  const btn = document.createElement('button');
+  btn.className = 'tab' + (i === 0 ? ' active' : '');
+  btn.innerHTML = `${cat.icon} ${cat.name}`;
+  btn.dataset.id = cat.id;
+  btn.addEventListener('click', () => show(cat.id));
+  navEl.appendChild(btn);
+
+  // Page
+  const page = document.createElement('section');
+  page.className = 'page' + (i === 0 ? ' active' : '');
+  page.id = 'p-' + cat.id;
+  page.innerHTML = `
+    <div class="page-header">
+      <h1>${cat.icon} ${cat.name}</h1>
+      <p>${cat.desc}</p>
+    </div>
+    <div class="grid">
+      ${cat.tools.map(t => `
+        <a class="tool" href="${t.url}" target="_blank" rel="noopener noreferrer" style="--c:${t.c}" title="${t.name}">
+          <span class="t-icon">${t.icon}</span>
+          <span class="t-name">${t.name}</span>
+          <span class="t-tag">${t.tag}</span>
+        </a>
+      `).join('')}
+    </div>
+  `;
+  mainEl.appendChild(page);
+});
+
+function show(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('p-' + id).classList.add('active');
+  document.querySelector(`[data-id="${id}"]`).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
