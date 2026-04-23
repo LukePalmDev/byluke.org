@@ -142,6 +142,17 @@
         0 2px 12px rgba(0,0,0,0.2);
     }
 
+    .tab-count {
+      font-size: 0.62rem;
+      opacity: 0.5;
+      background: rgba(255,255,255,0.1);
+      border-radius: 999px;
+      padding: 0.05em 0.45em;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+    .tab.active .tab-count { opacity: 0.8; }
+
     /* ── Search ── */
     #search {
       flex-shrink: 0;
@@ -469,7 +480,7 @@ cats.forEach((cat, i) => {
   // Tab
   const btn = document.createElement('button');
   btn.className = 'tab';
-  btn.innerHTML = `${cat.icon} ${cat.name}`;
+  btn.innerHTML = `${cat.icon} ${cat.name} <span class="tab-count">${cat.tools.length}</span>`;
   btn.dataset.id = cat.id;
   btn.addEventListener('click', () => show(cat.id));
   navEl.appendChild(btn);
