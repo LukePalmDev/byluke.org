@@ -130,6 +130,30 @@
         0 2px 12px rgba(0,0,0,0.2);
     }
 
+    /* ── Search ── */
+    #search {
+      flex-shrink: 0;
+      width: 180px;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(10px);
+      color: #f0f4ff;
+      font-size: 0.82rem;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    #search::placeholder { color: rgba(255,255,255,0.35); }
+    #search:focus {
+      width: 240px;
+      border-color: rgba(167,139,250,0.5);
+      background: rgba(255,255,255,0.1);
+      box-shadow: 0 0 0 3px rgba(167,139,250,0.15);
+    }
+    #search::-webkit-search-cancel-button { cursor: pointer; }
+
     /* ── Main ── */
     main {
       max-width: 1280px;
@@ -251,6 +275,7 @@
   <div class="header-inner">
     <a class="logo" href="#">by<span>luke</span>.org</a>
     <nav id="nav"></nav>
+    <input id="search" type="search" placeholder="🔍 Cerca tool…" autocomplete="off" spellcheck="false">
   </div>
 </header>
 
@@ -454,8 +479,55 @@ cats.forEach((cat, i) => {
   mainEl.appendChild(page);
 });
 
+// Search results page (virtual)
+const searchPage = document.createElement('section');
+searchPage.className = 'page';
+searchPage.id = 'p-search';
+mainEl.appendChild(searchPage);
+
+const searchInput = document.getElementById('search');
+let lastActiveId = cats[0].id;
+
+function renderSearchResults(query) {
+  const q = query.toLowerCase().trim();
+  const allTools = cats.flatMap(cat => cat.tools.map(t => ({ ...t, catName: cat.name })));
+  const results = allTools.filter(t =>
+    t.name.toLowerCase().includes(q) || t.tag.toLowerCase().includes(q) || t.catName.toLowerCase().includes(q)
+  );
+  searchPage.innerHTML = `
+    <div class="page-header">
+      <h1>🔍 Risultati per "${query}"</h1>
+      <p>${results.length} tool trovati</p>
+    </div>
+    <div class="grid">
+      ${results.map(t => `
+        <a class="tool" href="${t.url}" target="_blank" rel="noopener noreferrer" style="--c:${t.c}" title="${t.name}">
+          <img class="t-favicon" src="https://www.google.com/s2/favicons?domain=${new URL(t.url).hostname}&sz=32" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="t-icon" style="display:none">${t.icon}</span>
+          <span class="t-name">${t.name}</span>
+          <span class="t-tag">${t.catName}</span>
+        </a>
+      `).join('')}
+    </div>
+  `;
+}
+
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.trim();
+  if (q.length === 0) {
+    show(lastActiveId);
+    return;
+  }
+  renderSearchResults(q);
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+  searchPage.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 function show(id) {
   const validId = cats.find(c => c.id === id) ? id : cats[0].id;
+  lastActiveId = validId;
+  searchInput.value = '';
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
   document.getElementById('p-' + validId).classList.add('active');
