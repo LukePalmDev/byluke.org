@@ -302,8 +302,24 @@
       nav {
         order: 3;
         width: 100%;
-        padding-bottom: 0.25rem;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 0;
+        overflow: visible;
       }
+      .tab {
+        flex: 1;
+        flex-direction: column;
+        gap: 0;
+        padding: 0.35rem 0.1rem;
+        border-radius: 0.6rem;
+        justify-content: center;
+        align-items: center;
+      }
+      .tab-icon { font-size: 1.3rem; line-height: 1; }
+      .tab-label { display: none; }
+      .tab-count { display: none; }
       .grid { grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 0.65rem; }
       .page-header h1 { font-size: 1.25rem; }
       main { padding: 1.5rem 1rem 4rem; }
@@ -509,7 +525,7 @@ cats.forEach((cat, i) => {
   // Tab
   const btn = document.createElement('button');
   btn.className = 'tab';
-  btn.innerHTML = `${cat.icon} ${cat.name} <span class="tab-count">${cat.tools.length}</span>`;
+  btn.innerHTML = `<span class="tab-icon">${cat.icon}</span><span class="tab-label"> ${cat.name}</span><span class="tab-count">${cat.tools.length}</span>`;
   btn.dataset.id = cat.id;
   btn.addEventListener('click', () => show(cat.id));
   navEl.appendChild(btn);
