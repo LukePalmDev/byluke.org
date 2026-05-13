@@ -91,7 +91,6 @@
     .rule-thick  { border-top: 2px solid var(--ink); }
     .rule-double { border-top: 3px double var(--rule-strong); }
 
-    .masthead-meta-top,
     .masthead-meta-bot {
       display: flex; justify-content: space-between; align-items: baseline;
       padding: 6px 0; gap: 16px;
@@ -357,15 +356,10 @@
   <!-- Masthead -->
   <header class="masthead-wrap">
     <div class="rule-heavy"></div>
-    <div class="masthead-meta-top">
-      <span class="dateline">EDIZIONE NAZIONALE</span>
-      <span class="dateline">€ 0,00 · GRATIS DA SEMPRE</span>
-    </div>
     <h1 class="masthead">by<span style="color:var(--accent)">luke</span>.org</h1>
     <p class="masthead-tagline">Il catalogo completo degli strumenti AI &mdash; aggiornato a mano</p>
     <div class="rule-double"></div>
     <div class="masthead-meta-bot">
-      <span class="dateline" id="dateline-date"></span>
       <span class="dateline" id="dateline-stats"></span>
     </div>
   </header>
@@ -553,20 +547,6 @@ const cats = [
     ]
   },
 ];
-
-// ── Dateline ──────────────────────────────────────────────────────────────────
-(function() {
-  const days = ['DOMENICA','LUNEDÌ','MARTEDÌ','MERCOLEDÌ','GIOVEDÌ','VENERDÌ','SABATO'];
-  const months = ['GENNAIO','FEBBRAIO','MARZO','APRILE','MAGGIO','GIUGNO',
-                  'LUGLIO','AGOSTO','SETTEMBRE','OTTOBRE','NOVEMBRE','DICEMBRE'];
-  const now = new Date();
-  const d = days[now.getDay()];
-  const m = months[now.getMonth()];
-  const num = String(now.getDate()).padStart(2,'0');
-  const yr = now.getFullYear();
-  document.getElementById('dateline-date').textContent =
-    'VOL. II · NUM. 138 · ROMA · ' + d + ' ' + num + ' ' + m + ' ' + yr;
-})();
 
 // ── Stats ─────────────────────────────────────────────────────────────────────
 const totalTools = cats.reduce((n, c) => n + c.tools.length, 0);
