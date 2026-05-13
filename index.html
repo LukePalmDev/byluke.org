@@ -338,12 +338,18 @@
     .page.is-active { display: block; animation: fadeIn 0.18s ease; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+    /* ── Tab icon (desktop: nascosto; mobile: visibile) ─────────── */
+    .tab-icon { display: none; font-style: normal; font-size: 1.15rem; line-height: 1; }
+
     /* ── Responsive ──────────────────────────────────────────────── */
     @media (max-width: 760px) {
       .page-wrap { padding: 20px 18px 0; }
       .topbar { flex-wrap: wrap; }
       .search { width: 100%; order: -1; margin: 8px 0; }
       .tabs { width: 100%; }
+      .tab { padding: 10px 8px; justify-content: center; flex: 1; }
+      .tab-icon { display: inline; }
+      .tab-name, .tab-count { display: none; }
       .section-title { font-size: 1.8rem; }
       .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important; gap: 10px !important; }
     }
@@ -394,7 +400,7 @@
 <script>
 const cats = [
   {
-    id: 'llm', name: 'LLM', color: 'var(--c-llm)',
+    id: 'llm', name: 'LLM', icon: '💬', color: 'var(--c-llm)',
     desc: 'Chatbot e modelli linguistici AI',
     tools: [
       { name: 'ChatGPT',        url: 'https://chat.openai.com',           icon: '🟢', tag: 'OpenAI' },
@@ -414,7 +420,7 @@ const cats = [
     ]
   },
   {
-    id: 'mixllm', name: 'Mix LLM', color: 'var(--c-mix)',
+    id: 'mixllm', name: 'Mix LLM', icon: '🔀', color: 'var(--c-mix)',
     desc: 'Piattaforme API e aggregatori per accedere a più modelli AI',
     tools: [
       { name: 'Claude Platform', url: 'https://console.anthropic.com',  icon: '✳️', tag: 'Anthropic' },
@@ -427,7 +433,7 @@ const cats = [
     ]
   },
   {
-    id: 'media', name: 'FOTO & VIDEO', color: 'var(--c-media)',
+    id: 'media', name: 'FOTO & VIDEO', icon: '🎨', color: 'var(--c-media)',
     desc: 'Generazione di immagini e video con AI',
     tools: [
       { name: 'Midjourney',       url: 'https://www.midjourney.com',   icon: '🎨', tag: 'Immagini' },
@@ -447,7 +453,7 @@ const cats = [
     ]
   },
   {
-    id: 'slide', name: 'Slide', color: 'var(--c-slide)',
+    id: 'slide', name: 'Slide', icon: '📑', color: 'var(--c-slide)',
     desc: 'Strumenti per creare presentazioni e slide',
     tools: [
       { name: 'Gamma',        url: 'https://gamma.app',              icon: '✨', tag: 'Slide' },
@@ -462,7 +468,7 @@ const cats = [
     ]
   },
   {
-    id: 'codice', name: 'Code', color: 'var(--c-code)',
+    id: 'codice', name: 'Code', icon: '💻', color: 'var(--c-code)',
     desc: 'Strumenti AI per sviluppatori',
     tools: [
       { name: 'GitHub Copilot', url: 'https://github.com/features/copilot', icon: '🐙', tag: 'IDE' },
@@ -482,7 +488,7 @@ const cats = [
     ]
   },
   {
-    id: 'scrittura', name: 'TESTO', color: 'var(--c-write)',
+    id: 'scrittura', name: 'TESTO', icon: '✍️', color: 'var(--c-write)',
     desc: 'Copywriting e content creation AI',
     tools: [
       { name: 'Jasper',     url: 'https://www.jasper.ai',       icon: '🚀', tag: 'Copy' },
@@ -495,7 +501,7 @@ const cats = [
     ]
   },
   {
-    id: 'studio', name: 'Studio', color: 'var(--c-study)',
+    id: 'studio', name: 'Studio', icon: '🗂️', color: 'var(--c-study)',
     desc: 'Ricerca, scrittura accademica e appunti con AI',
     tools: [
       { name: 'NotebookLM', url: 'https://notebooklm.google.com', icon: '📓', tag: 'Google' },
@@ -504,7 +510,7 @@ const cats = [
     ]
   },
   {
-    id: 'produttivita', name: 'WORK', color: 'var(--c-prod)',
+    id: 'produttivita', name: 'WORK', icon: '⚙️', color: 'var(--c-prod)',
     desc: 'Automazione, voce e strumenti AI per il lavoro',
     tools: [
       { name: 'Zapier AI',  url: 'https://zapier.com',         icon: '⚡',  tag: 'Automazione' },
@@ -519,7 +525,7 @@ const cats = [
     ]
   },
   {
-    id: 'extra', name: 'EXTRA', color: 'var(--c-extra)',
+    id: 'extra', name: 'EXTRA', icon: '⭐', color: 'var(--c-extra)',
     desc: "Strumenti, repo e ricerche AI da tenere d'occhio",
     tools: [
       { name: 'tl;dv',         url: 'https://tldv.io',                                 icon: '🎙️', tag: 'Meeting' },
@@ -533,7 +539,7 @@ const cats = [
     ]
   },
   {
-    id: 'da-provare', name: 'Da Provare', color: 'var(--c-try)',
+    id: 'da-provare', name: 'Da Provare', icon: '🧪', color: 'var(--c-try)',
     desc: 'Strumenti e risorse design da esplorare',
     tools: [
       { name: 'Grainient',  url: 'https://grainient.supply',  icon: '🎨', tag: 'Backgrounds' },
@@ -618,6 +624,7 @@ cats.forEach((cat, i) => {
   btn.className = 'tab';
   btn.dataset.id = cat.id;
   btn.innerHTML =
+    '<span class="tab-icon" aria-hidden="true">' + cat.icon + '</span>' +
     '<span class="tab-name">' + cat.name + '</span>' +
     '<span class="tab-count">' + String(cat.tools.length).padStart(2, '0') + '</span>';
   btn.addEventListener('click', () => show(cat.id));
