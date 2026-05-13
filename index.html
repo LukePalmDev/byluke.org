@@ -3,522 +3,632 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Il catalogo completo degli strumenti AI — by Luke">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' https://www.google.com; base-uri 'self'; form-action 'none'">
-  <title>byluke.org — AI Hub</title>
-  <!-- Open Graph -->
-  <meta property="og:title" content="byluke.org — AI Hub">
-  <meta property="og:description" content="Il catalogo completo degli strumenti AI — by Luke">
+  <meta name="description" content="Il catalogo completo degli strumenti AI — aggiornato a mano. by Luke">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://www.google.com; base-uri 'self'; form-action 'none'">
+  <title>byluke.org — Edizione carta</title>
+  <meta property="og:title" content="byluke.org — Edizione carta">
+  <meta property="og:description" content="Il catalogo completo degli strumenti AI — aggiornato a mano">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://byluke.org">
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="byluke.org — AI Hub">
-  <meta name="twitter:description" content="Il catalogo completo degli strumenti AI — by Luke">
+  <meta name="twitter:title" content="byluke.org — Edizione carta">
+  <meta name="twitter:description" content="Il catalogo completo degli strumenti AI — aggiornato a mano">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f4f1ea'/><text x='50' y='78' font-size='72' font-family='Georgia,serif' font-weight='900' text-anchor='middle' fill='%2318171a'>b</text></svg>">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
   <style>
+    /* ── Tokens ─────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper:       #f4f1ea;
+      --paper-deep:  #ebe7dc;
+      --ink:         #18171a;
+      --ink-soft:    #2d2a26;
+      --ink-mute:    #5a544c;
+      --ink-faint:   #8a857c;
+      --rule:        #c9c2b6;
+      --rule-soft:   #ddd6c8;
+      --rule-strong: #1f1d1c;
+      --accent:      #b8281f;
+      --accent-tint: #f1d8d3;
+
+      --c-llm:   #1d6e6e;
+      --c-mix:   #3a4a8a;
+      --c-media: #b04a26;
+      --c-slide: #6a3a8a;
+      --c-code:  #2a2a2a;
+      --c-write: #8a5a14;
+      --c-study: #2a5a3a;
+      --c-prod:  #5a4a14;
+      --c-extra: #7a2a4a;
+      --c-try:   #1a4a6a;
+
+      --font-display: "Playfair Display", "Times New Roman", Times, serif;
+      --font-serif:   "PT Serif", Georgia, "Times New Roman", serif;
+      --font-rubric:  "Oswald", "Arial Narrow", "Helvetica Neue", sans-serif;
+      --font-mono:    "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+    }
 
     html { scroll-behavior: smooth; }
 
-    /* ── Animated background ── */
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      color: #f0f4ff;
-      min-height: 100vh;
-      background: linear-gradient(-45deg, #0d1117, #1a1040, #0d2137, #1a0d2e);
-      background-size: 400% 400%;
-      animation: bgShift 18s ease infinite;
-      will-change: background-position;
-      position: relative;
-    }
-
-    @keyframes bgShift {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Blobs fluidi */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 15% 60%, rgba(139,92,246,0.18) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 60% at 85% 30%, rgba(59,130,246,0.15) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 50% 80%, rgba(236,72,153,0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 55% 45% at 70% 70%, rgba(16,185,129,0.08) 0%, transparent 70%);
-      animation: blobsFloat 22s ease-in-out infinite;
-      will-change: transform;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    @keyframes blobsFloat {
-      0%, 100% { transform: scale(1) translate(0, 0); }
-      33%       { transform: scale(1.06) translate(2%, -2%); }
-      66%       { transform: scale(0.95) translate(-2%, 3%); }
-    }
-
-    /* ── Header ── */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      background: rgba(10, 12, 24, 0.45);
-      backdrop-filter: blur(28px) saturate(180%);
-      -webkit-backdrop-filter: blur(28px) saturate(180%);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      box-shadow:
-        0 4px 32px rgba(0,0,0,0.25),
-        inset 0 1px 0 rgba(255,255,255,0.1);
-    }
-
-    .header-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      height: 62px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .logo {
+      font-family: var(--font-serif);
       font-size: 1rem;
-      font-weight: 700;
-      color: #f0f4ff;
-      text-decoration: none;
-      letter-spacing: -0.02em;
-      flex-shrink: 0;
-    }
-    .logo span {
-      background: linear-gradient(135deg, #a78bfa, #60a5fa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      line-height: 1.55;
+      color: var(--ink);
+      background: var(--paper);
+      min-height: 100%;
+      font-feature-settings: "kern", "liga", "onum";
     }
 
-    /* ── Nav tabs ── */
-    nav {
-      display: flex;
-      gap: 0.2rem;
-      overflow-x: auto;
-      scrollbar-width: none;
-      flex: 1;
+    a { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    a:hover { color: var(--accent); }
+    ::selection { background: var(--accent); color: var(--paper); }
+
+    /* ── Page wrap ───────────────────────────────────────────────── */
+    .page-wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 28px 32px 0;
+      position: relative;
     }
-    nav::-webkit-scrollbar { display: none; }
+
+    .page-wrap[data-grain="1"]::before {
+      content: "";
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 1; opacity: 0.45;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08  0 0 0 0 0.08  0 0 0 0 0.08  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+    .page-wrap > * { position: relative; z-index: 2; }
+
+    /* ── Masthead ────────────────────────────────────────────────── */
+    .masthead-wrap { padding-top: 8px; }
+    .rule-heavy  { border-top: 4px solid var(--rule-strong); }
+    .rule-thick  { border-top: 2px solid var(--ink); }
+    .rule-double { border-top: 3px double var(--rule-strong); }
+
+    .masthead-meta-top,
+    .masthead-meta-bot {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 6px 0; gap: 16px;
+    }
+
+    .masthead-wrap .masthead {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(3rem, 7.2vw, 5.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.025em;
+      text-align: center;
+      margin: 4px 0 0;
+    }
+    .masthead-tagline {
+      text-align: center;
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--ink-mute);
+      font-size: 1.05rem;
+      margin: 4px 0 10px;
+    }
+    .dateline {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Topbar ──────────────────────────────────────────────────── */
+    .topbar {
+      display: flex; align-items: center; gap: 24px;
+      border-bottom: 1px solid var(--rule);
+      position: sticky; top: 0; z-index: 20;
+      background: var(--paper);
+    }
+
+    .tabs {
+      flex: 1; display: flex; gap: 0;
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
 
     .tab {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      background: transparent;
-      color: rgba(255,255,255,0.45);
-      font-size: 0.82rem;
-      font-weight: 500;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-      font-family: inherit;
+      font-family: var(--font-rubric);
+      font-size: 0.78rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-mute);
+      padding: 14px 14px 12px;
+      background: none; border: 0;
+      border-bottom: 3px solid transparent;
+      cursor: pointer; white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: color 0.15s ease, border-color 0.15s ease;
     }
-    .tab:hover {
-      background: rgba(255,255,255,0.07);
-      border-color: rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.85);
-    }
-    .tab.active {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      border-color: rgba(255,255,255,0.18);
-      color: #fff;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.2),
-        0 2px 12px rgba(0,0,0,0.2);
-    }
-
-    .tab-count {
-      font-size: 0.62rem;
-      opacity: 0.5;
-      background: rgba(255,255,255,0.1);
-      border-radius: 999px;
-      padding: 0.05em 0.45em;
-      font-weight: 600;
-      letter-spacing: 0;
-    }
-    .tab.active .tab-count { opacity: 0.8; }
-
-    /* ── Search ── */
-    #search {
-      flex-shrink: 0;
-      width: 180px;
-      padding: 0.4rem 0.85rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.07);
-      backdrop-filter: blur(10px);
-      color: #f0f4ff;
-      font-size: 0.82rem;
-      font-family: inherit;
-      outline: none;
-      transition: all 0.2s ease;
-    }
-    #search::placeholder { color: rgba(255,255,255,0.35); }
-    #search:focus {
-      width: 240px;
-      border-color: rgba(167,139,250,0.5);
-      background: rgba(255,255,255,0.1);
-      box-shadow: 0 0 0 3px rgba(167,139,250,0.15);
-    }
-    #search::-webkit-search-cancel-button { cursor: pointer; }
-
-    /* ── Main ── */
-    main {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 2.5rem 1.25rem 5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .page { display: none; }
-    .page.active {
-      display: block;
-      animation: fadeUp 0.25s ease both;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .page-header { margin-bottom: 2rem; }
-    .page-header h1 {
-      font-size: 1.5rem;
+    .tab:hover { color: var(--ink); }
+    .tab.is-active {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
       font-weight: 700;
-      letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #fff 30%, rgba(255,255,255,0.6));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
-    .page-header p {
-      font-size: 0.825rem;
-      color: rgba(255,255,255,0.4);
-      margin-top: 0.35rem;
+    .tab-count {
+      font-family: var(--font-mono);
+      font-size: 0.65rem; color: var(--ink-faint);
+      font-weight: 500; letter-spacing: 0;
     }
+    .tab.is-active .tab-count { color: var(--accent); }
 
-    /* ── Grid ── */
+    /* ── Search ──────────────────────────────────────────────────── */
+    .search {
+      display: flex; align-items: center; gap: 10px;
+      border: 1px solid var(--ink);
+      padding: 8px 12px;
+      background: var(--paper);
+      width: 280px; flex-shrink: 0;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .search:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-tint);
+    }
+    .search-icon {
+      width: 16px; height: 16px;
+      stroke: var(--ink-mute); stroke-width: 1.5; fill: none;
+      stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0;
+    }
+    .search input {
+      flex: 1; border: 0; background: transparent; outline: 0;
+      font-family: var(--font-serif); font-size: 0.95rem;
+      color: var(--ink); min-width: 0;
+    }
+    .search input::placeholder { color: var(--ink-faint); font-style: italic; }
+    .search input::-webkit-search-cancel-button { display: none; }
+    .search-shortcut {
+      font-family: var(--font-mono);
+      font-size: 0.7rem; color: var(--ink-faint);
+      border: 1px solid var(--rule); padding: 1px 6px; line-height: 1;
+    }
+    .search-clear {
+      background: transparent; border: 0;
+      font-size: 0.85rem; color: var(--ink-mute);
+      cursor: pointer; padding: 2px 4px;
+      font-family: var(--font-serif);
+    }
+    .search-clear:hover { color: var(--accent); }
+
+    /* ── Main ────────────────────────────────────────────────────── */
+    .main { padding: 32px 0 60px; }
+
+    /* ── Section head ────────────────────────────────────────────── */
+    .section-head { margin-bottom: 24px; }
+    .section-head .rule-thick  { margin-bottom: 8px; }
+    .section-head .rule-double { margin-top: 16px; }
+
+    .rubric {
+      font-family: var(--font-rubric);
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-mute);
+    }
+    .section-head .rubric { margin-bottom: 4px; }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.02; letter-spacing: -0.015em;
+      margin: 4px 0 6px;
+    }
+    .section-lede {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 1.1rem; max-width: 640px;
+      margin: 0 0 12px;
+    }
+    .section-meta { display: flex; gap: 18px; align-items: baseline; }
+
+    /* ── Grid ────────────────────────────────────────────────────── */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
-      gap: 0.9rem;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 14px;
     }
 
-    /* ── Tool card — Liquid Glass ── */
+    [data-density="compact"]  .grid { gap: 8px; }
+    [data-density="regular"]  .grid { gap: 14px; }
+    [data-density="spacious"] .grid { gap: 22px; }
+
+    /* ── Card: POSTER (default) ──────────────────────────────────── */
     .tool {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.55rem;
-      padding: 1.4rem 0.75rem 1.1rem;
-      min-height: 112px;
-      border-radius: 1.25rem;
-      /* colore come tinta, sfondo visibile in trasparenza */
-      background: color-mix(in srgb, var(--c, #334155) 28%, rgba(255,255,255,0.04));
-      color: #fff;
-      text-decoration: none;
-      border: 1px solid color-mix(in srgb, var(--c, #334155) 55%, rgba(255,255,255,0.25));
-      backdrop-filter: blur(20px) saturate(160%);
-      -webkit-backdrop-filter: blur(20px) saturate(160%);
-      box-shadow:
-        0 6px 24px rgba(0,0,0,0.2),
-        inset 0 1px 0 rgba(255,255,255,0.22),
-        inset 0 -1px 0 rgba(0,0,0,0.12);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
-      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid var(--ink);
+      padding: 18px 12px 14px;
+      text-decoration: none; color: var(--ink);
+      display: flex; flex-direction: column; align-items: center;
+      gap: 10px; min-height: 140px;
+      transition: transform 0.15s ease, border-color 0.15s ease;
     }
-
-    /* riflesso superiore */
     .tool::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 5%; right: 5%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+      content: "";
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--c, var(--ink));
+      transition: height 0.15s ease;
+    }
+    .tool-fav-wrap {
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 4px;
+    }
+    .tool-fav { width: 32px; height: 32px; object-fit: contain; }
+    .tool-emoji { font-size: 1.6rem; line-height: 1; }
+    .tool-text {
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      min-width: 0;
+    }
+    .tool-name {
+      font-family: var(--font-display);
+      font-weight: 700; font-size: 1rem;
+      text-align: center; line-height: 1.15; letter-spacing: -0.005em;
+    }
+    .tool-tag {
+      font-family: var(--font-rubric);
+      font-size: 0.62rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--ink-mute); text-align: center;
+    }
+    .tool:hover { transform: translateY(-2px); border-color: #000; }
+    .tool:hover::before { height: 6px; }
+    .tool:active { transform: translateY(0); }
+    .tool:focus-visible {
+      outline: 0;
+      box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--accent);
     }
 
-    .tool:hover {
-      transform: translateY(-5px) scale(1.02);
-      background: color-mix(in srgb, var(--c, #334155) 42%, rgba(255,255,255,0.06));
-      border-color: color-mix(in srgb, var(--c, #334155) 70%, rgba(255,255,255,0.4));
-      box-shadow:
-        0 16px 40px rgba(0,0,0,0.3),
-        0 0 28px color-mix(in srgb, var(--c, #334155) 35%, transparent),
-        inset 0 1px 0 rgba(255,255,255,0.3),
-        inset 0 -1px 0 rgba(0,0,0,0.15);
+    [data-density="compact"][data-card="poster"]  .tool { padding: 14px 10px 10px; min-height: 116px; }
+    [data-density="spacious"][data-card="poster"] .tool { padding: 22px 14px 18px; min-height: 168px; }
+
+    /* ── Card: CLASSIFIED ────────────────────────────────────────── */
+    [data-card="classified"] .tool {
+      flex-direction: row; align-items: center;
+      justify-content: flex-start; text-align: left;
+      padding: 12px 14px 12px 18px; min-height: 0; gap: 14px;
     }
-    .tool:active { transform: translateY(-2px) scale(1); }
-
-    @supports not (color: color-mix(in srgb, red 50%, blue)) {
-      .tool { background: rgba(51,65,85,0.55); border: 1px solid rgba(255,255,255,0.18); }
-      .tool:hover { background: rgba(71,85,105,0.7); border-color: rgba(255,255,255,0.3); }
+    [data-card="classified"] .tool::before {
+      top: 0; bottom: 0; right: auto; left: 0;
+      width: 3px; height: auto; transition: width 0.15s ease;
     }
-
-    .t-icon { font-size: 1.75rem; line-height: 1; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3)); }
-    .t-favicon { width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3)); border-radius: 6px; }
-    .t-name { font-size: 0.8rem; font-weight: 700; text-align: center; line-height: 1.25; text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
-    .t-tag  { font-size: 0.64rem; opacity: 0.55; text-align: center; }
-
-    /* ── Footer ── */
-    footer {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.25);
-      border-top: 1px solid rgba(255,255,255,0.06);
+    [data-card="classified"] .tool:hover::before { width: 5px; height: auto; }
+    [data-card="classified"] .tool-fav-wrap { margin: 0; width: 32px; height: 32px; flex-shrink: 0; }
+    [data-card="classified"] .tool-fav { width: 28px; height: 28px; }
+    [data-card="classified"] .tool-text { align-items: flex-start; flex: 1; min-width: 0; gap: 2px; }
+    [data-card="classified"] .tool-name {
+      font-size: 1rem; text-align: left;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;
     }
+    [data-card="classified"] .tool-tag { font-size: 0.6rem; text-align: left; }
+    [data-card="classified"] .tool:hover { transform: translateX(1px); }
 
-    /* ── Responsive ── */
-    @media (max-width: 520px) {
-      .header-inner {
-        flex-wrap: wrap;
-        height: auto;
-        gap: 0.5rem;
-        padding: 0.6rem 1rem;
-      }
-      .logo { flex: 1; }
-      #search { width: 130px; }
-      #search:focus { width: 130px; }
-      nav {
-        order: 3;
-        width: 100%;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        gap: 0;
-        overflow: visible;
-      }
-      .tab {
-        flex: 1;
-        flex-direction: column;
-        gap: 0;
-        padding: 0.35rem 0.1rem;
-        border-radius: 0.6rem;
-        justify-content: center;
-        align-items: center;
-      }
-      .tab-icon { font-size: 1.3rem; line-height: 1; }
-      .tab-label { display: none; }
-      .tab-count { display: none; }
-      .grid { grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 0.65rem; }
-      .page-header h1 { font-size: 1.25rem; }
-      main { padding: 1.5rem 1rem 4rem; }
+    /* ── Card: MINI ──────────────────────────────────────────────── */
+    [data-card="mini"] .tool { padding: 10px 8px; min-height: 84px; gap: 6px; }
+    [data-card="mini"] .tool::before { height: 3px; }
+    [data-card="mini"] .tool:hover::before { height: 4px; }
+    [data-card="mini"] .tool-fav-wrap { width: 28px; height: 28px; margin-top: 0; }
+    [data-card="mini"] .tool-fav { width: 24px; height: 24px; }
+    [data-card="mini"] .tool-emoji { font-size: 1.2rem; }
+    [data-card="mini"] .tool-name { font-size: 0.82rem; }
+    [data-card="mini"] .tool-tag { display: none; }
+
+    .empty { padding: 60px 0; text-align: center; color: var(--ink-mute); font-family: var(--font-serif); font-style: italic; }
+
+    /* ── Footer ──────────────────────────────────────────────────── */
+    .footer { margin-top: 40px; padding: 18px 0 28px; }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap; gap: 8px; padding-top: 14px;
+    }
+    .footer-sig { font-family: var(--font-serif); font-style: italic; color: var(--ink-mute); font-size: 0.95rem; }
+    .footer-contact { text-decoration: none; }
+    .footer-contact:hover { color: var(--accent); }
+
+    /* ── Page transitions ────────────────────────────────────────── */
+    .page { display: none; }
+    .page.is-active { display: block; animation: fadeIn 0.18s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ── Responsive ──────────────────────────────────────────────── */
+    @media (max-width: 760px) {
+      .page-wrap { padding: 20px 18px 0; }
+      .topbar { flex-wrap: wrap; }
+      .search { width: 100%; order: -1; margin: 8px 0; }
+      .tabs { width: 100%; }
+      .section-title { font-size: 1.8rem; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important; gap: 10px !important; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="header-inner">
-    <a class="logo" href="#">by<span>luke</span>.org</a>
-    <nav id="nav"></nav>
-    <input id="search" type="search" placeholder="🔍 Cerca tool…" autocomplete="off" spellcheck="false">
+<div class="page-wrap" id="page-wrap" data-card="classified" data-density="compact" data-columns="auto" data-grain="0">
+
+  <!-- Masthead -->
+  <header class="masthead-wrap">
+    <div class="rule-heavy"></div>
+    <div class="masthead-meta-top">
+      <span class="dateline">EDIZIONE NAZIONALE</span>
+      <span class="dateline">€ 0,00 · GRATIS DA SEMPRE</span>
+    </div>
+    <h1 class="masthead">by<span style="color:var(--accent)">luke</span>.org</h1>
+    <p class="masthead-tagline">Il catalogo completo degli strumenti AI &mdash; aggiornato a mano</p>
+    <div class="rule-double"></div>
+    <div class="masthead-meta-bot">
+      <span class="dateline" id="dateline-date"></span>
+      <span class="dateline" id="dateline-stats"></span>
+    </div>
+  </header>
+
+  <!-- Sticky topbar: tabs + search -->
+  <div class="topbar">
+    <nav class="tabs" id="nav" aria-label="Categorie"></nav>
+    <div class="search">
+      <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input id="search" type="search" placeholder="Cerca tool, categoria, fornitore…" autocomplete="off" spellcheck="false">
+      <span class="search-shortcut" id="search-shortcut">/</span>
+      <button class="search-clear" id="search-clear" style="display:none" aria-label="Cancella ricerca">✕</button>
+    </div>
   </div>
-</header>
 
-<main id="main"></main>
+  <main class="main" id="main"></main>
 
-<footer>Made by Luke — 24/04/26</footer>
+  <footer class="footer">
+    <div class="rule-heavy"></div>
+    <div class="footer-row">
+      <span class="dateline">© 2026 BYLUKE.ORG · ROMA</span>
+      <span class="footer-sig">Made by Luke &mdash; 24/04/26</span>
+      <a class="dateline footer-contact" href="mailto:luke@byluke.org">SUGGERISCI UN TOOL · LUKE@BYLUKE.ORG</a>
+    </div>
+  </footer>
+
+</div>
 
 <script>
 const cats = [
   {
-    id: 'llm',
-    name: 'LLM',
-    icon: '💬',
+    id: 'llm', name: 'LLM', color: 'var(--c-llm)',
     desc: 'Chatbot e modelli linguistici AI',
     tools: [
-      // ordine dalla foto
-      { name: 'ChatGPT',        url: 'https://chat.openai.com',              icon: '🟢', c: '#0d7a5f', tag: 'OpenAI' },
-      { name: 'Claude',         url: 'https://claude.ai',                    icon: '🤖', c: '#b05a3a', tag: 'Anthropic' },
-      { name: 'Gemini',         url: 'https://gemini.google.com',            icon: '🔷', c: '#1558d6', tag: 'Google' },
-      { name: 'Grok',           url: 'https://grok.com',                     icon: '⚡', c: '#374151', tag: 'xAI' },
-      { name: 'DeepSeek',       url: 'https://chat.deepseek.com',            icon: '🌊', c: '#1d4ed8', tag: 'DeepSeek' },
-      { name: 'Qwen Studio',    url: 'https://chat.qwen.ai',                 icon: '🧬', c: '#7c3aed', tag: 'Alibaba' },
-      { name: 'ERNIE',          url: 'https://yiyan.baidu.com',              icon: '🔵', c: '#2563eb', tag: 'Baidu' },
-      { name: 'Kimi',           url: 'https://kimi.ai',                      icon: '🌙', c: '#0f766e', tag: 'Moonshot AI' },
-      { name: 'INTELLECT-3',    url: 'https://chat.primeintellect.ai/',      icon: '🧠', c: '#4c1d95', tag: 'Prime Intellect' },
-      { name: 'Inception Chat', url: 'https://chat.inceptionlabs.ai',         icon: '🔮', c: '#1e3a8a', tag: 'Inception' },
-      // ordine alfabetico
-      { name: 'Copilot',        url: 'https://copilot.microsoft.com',        icon: '🪟', c: '#0067b8', tag: 'Microsoft' },
-      { name: 'Le Chat',        url: 'https://chat.mistral.ai',              icon: '🌀', c: '#b35000', tag: 'Mistral AI' },
-      { name: 'Meta AI',        url: 'https://www.meta.ai',                  icon: '🦙', c: '#0055c8', tag: 'Meta' },
-      { name: 'Pi',             url: 'https://pi.ai',                        icon: '🧠', c: '#0e7490', tag: 'Inflection' },
+      { name: 'ChatGPT',        url: 'https://chat.openai.com',           icon: '🟢', tag: 'OpenAI' },
+      { name: 'Claude',         url: 'https://claude.ai',                 icon: '🤖', tag: 'Anthropic' },
+      { name: 'Gemini',         url: 'https://gemini.google.com',         icon: '🔷', tag: 'Google' },
+      { name: 'Grok',           url: 'https://grok.com',                  icon: '⚡', tag: 'xAI' },
+      { name: 'DeepSeek',       url: 'https://chat.deepseek.com',         icon: '🌊', tag: 'DeepSeek' },
+      { name: 'Qwen Studio',    url: 'https://chat.qwen.ai',              icon: '🧬', tag: 'Alibaba' },
+      { name: 'ERNIE',          url: 'https://yiyan.baidu.com',           icon: '🔵', tag: 'Baidu' },
+      { name: 'Kimi',           url: 'https://kimi.ai',                   icon: '🌙', tag: 'Moonshot AI' },
+      { name: 'INTELLECT-3',    url: 'https://chat.primeintellect.ai/',   icon: '🧠', tag: 'Prime Intellect' },
+      { name: 'Inception Chat', url: 'https://chat.inceptionlabs.ai',     icon: '🔮', tag: 'Inception' },
+      { name: 'Copilot',        url: 'https://copilot.microsoft.com',     icon: '🪟', tag: 'Microsoft' },
+      { name: 'Le Chat',        url: 'https://chat.mistral.ai',           icon: '🌀', tag: 'Mistral AI' },
+      { name: 'Meta AI',        url: 'https://www.meta.ai',               icon: '🦙', tag: 'Meta' },
+      { name: 'Pi',             url: 'https://pi.ai',                     icon: '🧠', tag: 'Inflection' },
     ]
   },
   {
-    id: 'mixllm',
-    name: 'Mix LLM',
-    icon: '🔀',
+    id: 'mixllm', name: 'Mix LLM', color: 'var(--c-mix)',
     desc: 'Piattaforme API e aggregatori per accedere a più modelli AI',
     tools: [
-      { name: 'Claude Platform',  url: 'https://console.anthropic.com',  icon: '✳️', c: '#b05a3a', tag: 'Anthropic' },
-      { name: 'OpenAI Platform',  url: 'https://platform.openai.com',    icon: '⚙️', c: '#0d7a5f', tag: 'OpenAI' },
-      { name: 'Mercury',          url: 'https://chat.mercuryai.io/',     icon: '🏢', c: '#18181b', tag: 'Enterprise AI' },
-      { name: 'Groq Chat',        url: 'https://groq.com',               icon: '⚡', c: '#c2410c', tag: 'Groq' },
-      { name: 'Perplexity',       url: 'https://www.perplexity.ai',      icon: '🔍', c: '#1a6e78', tag: 'Search AI' },
-      { name: 'HuggingChat',      url: 'https://huggingface.co/chat',    icon: '🤗', c: '#b45309', tag: 'HuggingFace' },
-      { name: 'Poe',              url: 'https://poe.com',                icon: '🎯', c: '#6d28d9', tag: 'Quora' },
+      { name: 'Claude Platform', url: 'https://console.anthropic.com',  icon: '✳️', tag: 'Anthropic' },
+      { name: 'OpenAI Platform', url: 'https://platform.openai.com',    icon: '⚙️', tag: 'OpenAI' },
+      { name: 'Mercury',         url: 'https://chat.mercuryai.io/',     icon: '🏢', tag: 'Enterprise AI' },
+      { name: 'Groq Chat',       url: 'https://groq.com',               icon: '⚡', tag: 'Groq' },
+      { name: 'Perplexity',      url: 'https://www.perplexity.ai',      icon: '🔍', tag: 'Search AI' },
+      { name: 'HuggingChat',     url: 'https://huggingface.co/chat',    icon: '🤗', tag: 'HuggingFace' },
+      { name: 'Poe',             url: 'https://poe.com',                icon: '🎯', tag: 'Quora' },
     ]
   },
   {
-    id: 'media',
-    name: 'Immagini & Video',
-    icon: '🎨',
+    id: 'media', name: 'Immagini & Video', color: 'var(--c-media)',
     desc: 'Generazione di immagini e video con AI',
     tools: [
-      { name: 'Midjourney',        url: 'https://www.midjourney.com',    icon: '🎨', c: '#3730a3', tag: 'Immagini' },
-      { name: 'Stable Diffusion',  url: 'https://dreamstudio.ai',        icon: '🌈', c: '#c2410c', tag: 'Stability AI' },
-      { name: 'Adobe Firefly',     url: 'https://firefly.adobe.com',     icon: '🔥', c: '#b91c1c', tag: 'Adobe' },
-      { name: 'Leonardo AI',       url: 'https://leonardo.ai',           icon: '🎭', c: '#5b21b6', tag: 'Immagini' },
-      { name: 'Ideogram',          url: 'https://ideogram.ai',           icon: '✍️', c: '#075985', tag: 'Immagini' },
-      { name: 'Runway',            url: 'https://runwayml.com',          icon: '🎬', c: '#1f2937', tag: 'Video' },
-      { name: 'Pika',              url: 'https://pika.art',              icon: '⚡', c: '#6b21a8', tag: 'Video' },
-      { name: 'Sora',              url: 'https://sora.com',              icon: '🎥', c: '#065f46', tag: 'OpenAI' },
-      { name: 'Kling AI',          url: 'https://klingai.com',           icon: '🎞️', c: '#4c1d95', tag: 'Video' },
-      { name: 'Flux',              url: 'https://flux1.ai',              icon: '🌀', c: '#6d28d9', tag: 'Immagini' },
-      { name: 'Google AI Studio',  url: 'https://aistudio.google.com',   icon: '✨', c: '#1558d6', tag: 'Google' },
-      { name: 'Suno',              url: 'https://suno.com',              icon: '🎵', c: '#c2410c', tag: 'Musica' },
-      { name: 'Speaktor',          url: 'https://speaktor.com',          icon: '🗣️', c: '#6d28d9', tag: 'Text to Speech' },
-      { name: 'Lovart',            url: 'https://lovart.ai',             icon: '🎨', c: '#374151', tag: 'Design' },
+      { name: 'Midjourney',       url: 'https://www.midjourney.com',   icon: '🎨', tag: 'Immagini' },
+      { name: 'Stable Diffusion', url: 'https://dreamstudio.ai',       icon: '🌈', tag: 'Stability AI' },
+      { name: 'Adobe Firefly',    url: 'https://firefly.adobe.com',    icon: '🔥', tag: 'Adobe' },
+      { name: 'Leonardo AI',      url: 'https://leonardo.ai',          icon: '🎭', tag: 'Immagini' },
+      { name: 'Ideogram',         url: 'https://ideogram.ai',          icon: '✍️', tag: 'Immagini' },
+      { name: 'Runway',           url: 'https://runwayml.com',         icon: '🎬', tag: 'Video' },
+      { name: 'Pika',             url: 'https://pika.art',             icon: '⚡', tag: 'Video' },
+      { name: 'Sora',             url: 'https://sora.com',             icon: '🎥', tag: 'OpenAI' },
+      { name: 'Kling AI',         url: 'https://klingai.com',          icon: '🎞️', tag: 'Video' },
+      { name: 'Flux',             url: 'https://flux1.ai',             icon: '🌀', tag: 'Immagini' },
+      { name: 'Google AI Studio', url: 'https://aistudio.google.com',  icon: '✨', tag: 'Google' },
+      { name: 'Suno',             url: 'https://suno.com',             icon: '🎵', tag: 'Musica' },
+      { name: 'Speaktor',         url: 'https://speaktor.com',         icon: '🗣️', tag: 'Text to Speech' },
+      { name: 'Lovart',           url: 'https://lovart.ai',            icon: '🎨', tag: 'Design' },
     ]
   },
   {
-    id: 'slide',
-    name: 'Slide',
-    icon: '📑',
+    id: 'slide', name: 'Slide', color: 'var(--c-slide)',
     desc: 'Strumenti per creare presentazioni e slide',
     tools: [
-      { name: 'Gamma',        url: 'https://gamma.app',                  icon: '✨', c: '#5b21b6', tag: 'Slide' },
-      { name: 'Beautiful.ai', url: 'https://www.beautiful.ai',           icon: '💎', c: '#075985', tag: 'Slide' },
-      { name: 'Tome',         url: 'https://tome.app',                   icon: '📖', c: '#1f2937', tag: 'Slide' },
-      { name: 'Plus AI',      url: 'https://www.plusdocs.com',           icon: '➕', c: '#92400e', tag: 'Google Slides' },
-      { name: 'Decktopus',    url: 'https://www.decktopus.com',          icon: '🐙', c: '#3730a3', tag: 'Slide' },
-      { name: 'SlidesAI',     url: 'https://www.slidesai.io',            icon: '📋', c: '#14532d', tag: 'Google Slides' },
-      { name: 'MagicSlides',  url: 'https://www.magicslides.app',        icon: '🪄', c: '#9d174d', tag: 'Slide' },
-      { name: 'Pitch',        url: 'https://pitch.com',                  icon: '🎯', c: '#0f766e', tag: 'Slide' },
-      { name: 'Prezi',        url: 'https://prezi.com',                  icon: '🔵', c: '#0073e6', tag: 'Slide' },
+      { name: 'Gamma',        url: 'https://gamma.app',              icon: '✨', tag: 'Slide' },
+      { name: 'Beautiful.ai', url: 'https://www.beautiful.ai',       icon: '💎', tag: 'Slide' },
+      { name: 'Tome',         url: 'https://tome.app',               icon: '📖', tag: 'Slide' },
+      { name: 'Plus AI',      url: 'https://www.plusdocs.com',       icon: '➕', tag: 'Google Slides' },
+      { name: 'Decktopus',    url: 'https://www.decktopus.com',      icon: '🐙', tag: 'Slide' },
+      { name: 'SlidesAI',     url: 'https://www.slidesai.io',        icon: '📋', tag: 'Google Slides' },
+      { name: 'MagicSlides',  url: 'https://www.magicslides.app',    icon: '🪄', tag: 'Slide' },
+      { name: 'Pitch',        url: 'https://pitch.com',              icon: '🎯', tag: 'Slide' },
+      { name: 'Prezi',        url: 'https://prezi.com',              icon: '🔵', tag: 'Slide' },
     ]
   },
   {
-    id: 'codice',
-    name: 'Code',
-    icon: '💻',
+    id: 'codice', name: 'Code', color: 'var(--c-code)',
     desc: 'Strumenti AI per sviluppatori',
     tools: [
-      { name: 'GitHub Copilot', url: 'https://github.com/features/copilot', icon: '🐙', c: '#1f2937', tag: 'IDE' },
-      { name: 'Cursor',         url: 'https://cursor.com',                   icon: '🖱️', c: '#0f172a', tag: 'IDE' },
-      { name: 'Replit AI',      url: 'https://replit.com',                   icon: '🔄', c: '#c2410c', tag: 'IDE' },
-      { name: 'v0',             url: 'https://v0.dev',                        icon: '▲', c: '#18181b', tag: 'Vercel' },
-      { name: 'Bolt',           url: 'https://bolt.new',                     icon: '⚡', c: '#92400e', tag: 'App builder' },
-      { name: 'Windsurf',       url: 'https://codeium.com/windsurf',         icon: '🏄', c: '#0c4a6e', tag: 'IDE' },
-      { name: 'Lovable',        url: 'https://lovable.dev',                  icon: '❤️', c: '#9d174d', tag: 'App builder' },
-      { name: 'Claude Code',    url: 'https://claude.ai/code',               icon: '🤖', c: '#b05a3a', tag: 'CLI' },
-      { name: 'Claude Design',  url: 'https://claude.ai/design',             icon: '🎨', c: '#7c3aed', tag: 'Design' },
-      { name: 'Codeium',        url: 'https://codeium.com',                  icon: '💡', c: '#14532d', tag: 'Assistente' },
-      { name: 'Tabnine',        url: 'https://www.tabnine.com',              icon: '📝', c: '#3730a3', tag: 'Assistente' },
-      { name: 'Whisk',          url: 'https://labs.google/fx/tools/whisk',   icon: '🌀', c: '#1558d6', tag: 'Google Labs' },
-      { name: 'Stitch',         url: 'https://stitch.withgoogle.com/',       icon: '🧵', c: '#0f766e', tag: 'Google' },
-      { name: 'Google Labs',    url: 'https://labs.google',                  icon: '🔬', c: '#b91c1c', tag: 'Google' },
+      { name: 'GitHub Copilot', url: 'https://github.com/features/copilot', icon: '🐙', tag: 'IDE' },
+      { name: 'Cursor',         url: 'https://cursor.com',                   icon: '🖱️', tag: 'IDE' },
+      { name: 'Replit AI',      url: 'https://replit.com',                   icon: '🔄', tag: 'IDE' },
+      { name: 'v0',             url: 'https://v0.dev',                        icon: '▲',  tag: 'Vercel' },
+      { name: 'Bolt',           url: 'https://bolt.new',                     icon: '⚡', tag: 'App builder' },
+      { name: 'Windsurf',       url: 'https://codeium.com/windsurf',         icon: '🏄', tag: 'IDE' },
+      { name: 'Lovable',        url: 'https://lovable.dev',                  icon: '❤️', tag: 'App builder' },
+      { name: 'Claude Code',    url: 'https://claude.ai/code',               icon: '🤖', tag: 'CLI' },
+      { name: 'Claude Design',  url: 'https://claude.ai/design',             icon: '🎨', tag: 'Design' },
+      { name: 'Codeium',        url: 'https://codeium.com',                  icon: '💡', tag: 'Assistente' },
+      { name: 'Tabnine',        url: 'https://www.tabnine.com',              icon: '📝', tag: 'Assistente' },
+      { name: 'Whisk',          url: 'https://labs.google/fx/tools/whisk',   icon: '🌀', tag: 'Google Labs' },
+      { name: 'Stitch',         url: 'https://stitch.withgoogle.com/',       icon: '🧵', tag: 'Google' },
+      { name: 'Google Labs',    url: 'https://labs.google',                  icon: '🔬', tag: 'Google' },
     ]
   },
   {
-    id: 'scrittura',
-    name: 'Scrittura',
-    icon: '✍️',
+    id: 'scrittura', name: 'Scrittura', color: 'var(--c-write)',
     desc: 'Copywriting e content creation AI',
     tools: [
-      { name: 'Jasper',     url: 'https://www.jasper.ai',       icon: '🚀', c: '#9a3412', tag: 'Copy' },
-      { name: 'Copy.ai',    url: 'https://www.copy.ai',          icon: '📄', c: '#3730a3', tag: 'Copy' },
-      { name: 'Writesonic', url: 'https://writesonic.com',       icon: '⚡', c: '#5b21b6', tag: 'Copy' },
-      { name: 'Grammarly',  url: 'https://www.grammarly.com',    icon: '✅', c: '#14532d', tag: 'Grammar' },
-      { name: 'Quillbot',   url: 'https://quillbot.com',         icon: '🪶', c: '#065f46', tag: 'Paraphrase' },
-      { name: 'Rytr',       url: 'https://rytr.me',              icon: '🖊️', c: '#4c1d95', tag: 'Copy' },
-      { name: 'Sudowrite',  url: 'https://www.sudowrite.com',    icon: '📚', c: '#78350f', tag: 'Narrativa' },
+      { name: 'Jasper',     url: 'https://www.jasper.ai',       icon: '🚀', tag: 'Copy' },
+      { name: 'Copy.ai',    url: 'https://www.copy.ai',          icon: '📄', tag: 'Copy' },
+      { name: 'Writesonic', url: 'https://writesonic.com',       icon: '⚡', tag: 'Copy' },
+      { name: 'Grammarly',  url: 'https://www.grammarly.com',    icon: '✅', tag: 'Grammar' },
+      { name: 'Quillbot',   url: 'https://quillbot.com',         icon: '🪶', tag: 'Paraphrase' },
+      { name: 'Rytr',       url: 'https://rytr.me',              icon: '🖊️', tag: 'Copy' },
+      { name: 'Sudowrite',  url: 'https://www.sudowrite.com',    icon: '📚', tag: 'Narrativa' },
     ]
   },
   {
-    id: 'studio',
-    name: 'Studio',
-    icon: '🗂️',
+    id: 'studio', name: 'Studio', color: 'var(--c-study)',
     desc: 'Ricerca, scrittura accademica e appunti con AI',
     tools: [
-      { name: 'NotebookLM',  url: 'https://notebooklm.google.com', icon: '📓', c: '#1558d6', tag: 'Google' },
-      { name: 'Prism',       url: 'https://prism.openai.com/',     icon: '🔬', c: '#6d28d9', tag: 'LaTeX Editor' },
-      { name: 'Consensus',   url: 'https://consensus.app',         icon: '📑', c: '#0f766e', tag: 'Ricerca' },
+      { name: 'NotebookLM', url: 'https://notebooklm.google.com', icon: '📓', tag: 'Google' },
+      { name: 'Prism',      url: 'https://prism.openai.com/',     icon: '🔬', tag: 'LaTeX Editor' },
+      { name: 'Consensus',  url: 'https://consensus.app',         icon: '📑', tag: 'Ricerca' },
     ]
   },
   {
-    id: 'produttivita',
-    name: 'Produttività',
-    icon: '⚙️',
+    id: 'produttivita', name: 'Produttività', color: 'var(--c-prod)',
     desc: 'Automazione, voce e strumenti AI per il lavoro',
     tools: [
-      { name: 'Zapier AI',   url: 'https://zapier.com',            icon: '⚡', c: '#9a3412', tag: 'Automazione' },
-      { name: 'Make',        url: 'https://www.make.com',          icon: '🔗', c: '#4c1d95', tag: 'Automazione' },
-      { name: 'Otter.ai',    url: 'https://otter.ai',             icon: '🎙️', c: '#3730a3', tag: 'Trascrizione' },
-      { name: 'Fireflies',   url: 'https://fireflies.ai',         icon: '🦋', c: '#5b21b6', tag: 'Meeting' },
-      { name: 'Murf AI',     url: 'https://murf.ai',              icon: '🎤', c: '#78350f', tag: 'Voce' },
-      { name: 'Taskade',     url: 'https://www.taskade.com',       icon: '✅', c: '#14532d', tag: 'Task' },
-      { name: 'Reclaim AI',  url: 'https://reclaim.ai',            icon: '📅', c: '#4c1d95', tag: 'Calendario' },
-      { name: 'Motion',      url: 'https://www.usemotion.com',    icon: '🏃', c: '#075985', tag: 'Calendario' },
-      { name: 'Mem.ai',      url: 'https://mem.ai',               icon: '🧠', c: '#0c4a6e', tag: 'Note' },
+      { name: 'Zapier AI',  url: 'https://zapier.com',         icon: '⚡',  tag: 'Automazione' },
+      { name: 'Make',       url: 'https://www.make.com',       icon: '🔗',  tag: 'Automazione' },
+      { name: 'Otter.ai',   url: 'https://otter.ai',          icon: '🎙️', tag: 'Trascrizione' },
+      { name: 'Fireflies',  url: 'https://fireflies.ai',      icon: '🦋',  tag: 'Meeting' },
+      { name: 'Murf AI',    url: 'https://murf.ai',           icon: '🎤',  tag: 'Voce' },
+      { name: 'Taskade',    url: 'https://www.taskade.com',    icon: '✅',  tag: 'Task' },
+      { name: 'Reclaim AI', url: 'https://reclaim.ai',        icon: '📅',  tag: 'Calendario' },
+      { name: 'Motion',     url: 'https://www.usemotion.com', icon: '🏃',  tag: 'Calendario' },
+      { name: 'Mem.ai',     url: 'https://mem.ai',            icon: '🧠',  tag: 'Note' },
     ]
   },
   {
-    id: 'extra',
-    name: 'EXTRA',
-    icon: '⭐',
-    desc: 'Strumenti, repo e ricerche AI da tenere d\'occhio',
+    id: 'extra', name: 'EXTRA', color: 'var(--c-extra)',
+    desc: "Strumenti, repo e ricerche AI da tenere d'occhio",
     tools: [
-      { name: 'tl;dv',           url: 'https://tldv.io',                                     icon: '🎙️', c: '#374151', tag: 'Meeting' },
-      { name: 'dots.ocr',        url: 'https://github.com/rednote-hilab/dots.ocr',           icon: '📄', c: '#1f2937', tag: 'GitHub' },
-      { name: 'Project Genie',   url: 'https://labs.google/projectgenie',                    icon: '🧪', c: '#9d174d', tag: 'Google Labs' },
-      { name: 'dots.mocr',       url: 'https://dotsocr.xiaohongshu.com',                     icon: '🔍', c: '#c2410c', tag: 'OCR' },
-      { name: 'AI Scientist',    url: 'https://github.com/SakanaAI/AI-Scientist',            icon: '🔬', c: '#065f46', tag: 'GitHub' },
-      { name: 'PaperBanana',     url: 'https://github.com/dwzhu-pku/PaperBanana',           icon: '📝', c: '#92400e', tag: 'GitHub' },
-      { name: 'HuggingFace',     url: 'https://huggingface.co/models',                      icon: '🤗', c: '#b45309', tag: 'Models' },
-      { name: 'Serus',           url: 'https://app.serus.ai',                                icon: '📊', c: '#1d4ed8', tag: 'Dashboard' },
+      { name: 'tl;dv',         url: 'https://tldv.io',                                 icon: '🎙️', tag: 'Meeting' },
+      { name: 'dots.ocr',      url: 'https://github.com/rednote-hilab/dots.ocr',       icon: '📄',  tag: 'GitHub' },
+      { name: 'Project Genie', url: 'https://labs.google/projectgenie',                icon: '🧪',  tag: 'Google Labs' },
+      { name: 'dots.mocr',     url: 'https://dotsocr.xiaohongshu.com',                 icon: '🔍',  tag: 'OCR' },
+      { name: 'AI Scientist',  url: 'https://github.com/SakanaAI/AI-Scientist',        icon: '🔬',  tag: 'GitHub' },
+      { name: 'PaperBanana',   url: 'https://github.com/dwzhu-pku/PaperBanana',       icon: '📝',  tag: 'GitHub' },
+      { name: 'HuggingFace',   url: 'https://huggingface.co/models',                  icon: '🤗',  tag: 'Models' },
+      { name: 'Serus',         url: 'https://app.serus.ai',                            icon: '📊',  tag: 'Dashboard' },
     ]
   },
   {
-    id: 'da-provare',
-    name: 'Da Provare',
-    icon: '🧪',
+    id: 'da-provare', name: 'Da Provare', color: 'var(--c-try)',
     desc: 'Strumenti e risorse design da esplorare',
     tools: [
-      { name: 'Grainient',    url: 'https://grainient.supply',   icon: '🎨', c: '#7c3aed', tag: 'Backgrounds' },
-      { name: 'Curated',      url: 'https://curated.design',     icon: '✨', c: '#0284c7', tag: 'Inspiration' },
-      { name: 'Fontshare',    url: 'https://fontshare.com',      icon: '🔤', c: '#1e40af', tag: 'Fonts' },
-      { name: 'Remove.bg',    url: 'https://www.remove.bg',      icon: '✂️', c: '#0f766e', tag: 'Immagini' },
-      { name: 'Kling AI',     url: 'https://klingai.com',        icon: '🎬', c: '#b91c1c', tag: 'Video' },
-      { name: 'Midjourney',   url: 'https://midjourney.com',     icon: '🖼️', c: '#0c4a6e', tag: 'Image Gen' },
-      { name: 'Bentogrids',   url: 'https://bentogrids.com',     icon: '🗂️', c: '#065f46', tag: 'Bento' },
-      { name: 'Figmify',      url: 'https://figmify.ai',         icon: '🔄', c: '#78350f', tag: 'Figma' },
+      { name: 'Grainient',  url: 'https://grainient.supply',  icon: '🎨', tag: 'Backgrounds' },
+      { name: 'Curated',    url: 'https://curated.design',    icon: '✨', tag: 'Inspiration' },
+      { name: 'Fontshare',  url: 'https://fontshare.com',     icon: '🔤', tag: 'Fonts' },
+      { name: 'Remove.bg',  url: 'https://www.remove.bg',     icon: '✂️', tag: 'Immagini' },
+      { name: 'Kling AI',   url: 'https://klingai.com',       icon: '🎬', tag: 'Video' },
+      { name: 'Midjourney', url: 'https://midjourney.com',    icon: '🖼️', tag: 'Image Gen' },
+      { name: 'Bentogrids', url: 'https://bentogrids.com',    icon: '🗂️', tag: 'Bento' },
+      { name: 'Figmify',    url: 'https://figmify.ai',        icon: '🔄', tag: 'Figma' },
     ]
   },
 ];
 
+// ── Dateline ──────────────────────────────────────────────────────────────────
+(function() {
+  const days = ['DOMENICA','LUNEDÌ','MARTEDÌ','MERCOLEDÌ','GIOVEDÌ','VENERDÌ','SABATO'];
+  const months = ['GENNAIO','FEBBRAIO','MARZO','APRILE','MAGGIO','GIUGNO',
+                  'LUGLIO','AGOSTO','SETTEMBRE','OTTOBRE','NOVEMBRE','DICEMBRE'];
+  const now = new Date();
+  const d = days[now.getDay()];
+  const m = months[now.getMonth()];
+  const num = String(now.getDate()).padStart(2,'0');
+  const yr = now.getFullYear();
+  document.getElementById('dateline-date').textContent =
+    'VOL. II · NUM. 138 · ROMA · ' + d + ' ' + num + ' ' + m + ' ' + yr;
+})();
+
+// ── Stats ─────────────────────────────────────────────────────────────────────
+const totalTools = cats.reduce((n, c) => n + c.tools.length, 0);
+document.getElementById('dateline-stats').textContent =
+  totalTools + ' TOOL · ' + cats.length + ' CATEGORIE';
+
+// ── Build a tool card element ─────────────────────────────────────────────────
+function makeCard(tool, color, catName) {
+  let host = '';
+  try { host = new URL(tool.url).hostname; } catch(_) {}
+
+  const a = document.createElement('a');
+  a.className = 'tool';
+  a.href = tool.url;
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  a.style.setProperty('--c', color);
+  a.title = tool.name;
+
+  const favWrap = document.createElement('div');
+  favWrap.className = 'tool-fav-wrap';
+
+  const img = document.createElement('img');
+  img.className = 'tool-fav';
+  img.src = 'https://www.google.com/s2/favicons?domain=' + host + '&sz=64';
+  img.alt = '';
+  img.loading = 'lazy';
+  img.addEventListener('error', function() {
+    favWrap.innerHTML = '<span class="tool-emoji" aria-hidden="true">' + tool.icon + '</span>';
+  });
+  favWrap.appendChild(img);
+
+  const text = document.createElement('div');
+  text.className = 'tool-text';
+  text.innerHTML =
+    '<span class="tool-name">' + tool.name + '</span>' +
+    '<span class="tool-tag">' + (tool.tag || catName) + '</span>';
+
+  a.appendChild(favWrap);
+  a.appendChild(text);
+  return a;
+}
+
+// ── Build section head element ─────────────────────────────────────────────────
+function makeSectionHead(cat, index, kicker) {
+  const head = document.createElement('div');
+  head.className = 'section-head';
+  const rub = kicker || ('SEZIONE ' + String(index + 1).padStart(2, '0') + ' · ' + cat.name.toUpperCase());
+  head.innerHTML =
+    '<div class="rule-thick"></div>' +
+    '<div class="rubric" style="color:var(--accent)">' + rub + '</div>' +
+    '<h2 class="section-title">' + cat.name + '</h2>' +
+    (cat.desc ? '<p class="section-lede">' + cat.desc + '</p>' : '') +
+    '<div class="section-meta">' +
+      '<span class="rubric">' + cat.count + ' TOOL</span>' +
+      '<span class="rubric" style="color:var(--ink-faint)">AGG. 14·05·26</span>' +
+    '</div>' +
+    '<div class="rule-double"></div>';
+  return head;
+}
+
+// ── Build category pages ──────────────────────────────────────────────────────
 const navEl  = document.getElementById('nav');
 const mainEl = document.getElementById('main');
 
@@ -526,8 +636,10 @@ cats.forEach((cat, i) => {
   // Tab
   const btn = document.createElement('button');
   btn.className = 'tab';
-  btn.innerHTML = `<span class="tab-icon">${cat.icon}</span><span class="tab-label"> ${cat.name}</span><span class="tab-count">${cat.tools.length}</span>`;
   btn.dataset.id = cat.id;
+  btn.innerHTML =
+    '<span class="tab-name">' + cat.name + '</span>' +
+    '<span class="tab-count">' + String(cat.tools.length).padStart(2, '0') + '</span>';
   btn.addEventListener('click', () => show(cat.id));
   navEl.appendChild(btn);
 
@@ -535,21 +647,14 @@ cats.forEach((cat, i) => {
   const page = document.createElement('section');
   page.className = 'page';
   page.id = 'p-' + cat.id;
-  page.innerHTML = `
-    <div class="page-header">
-      <h1>${cat.icon} ${cat.name}</h1>
-      <p>${cat.desc}</p>
-    </div>
-    <div class="grid">
-      ${cat.tools.map(t => `
-        <a class="tool" href="${t.url}" target="_blank" rel="noopener noreferrer" style="--c:${t.c}" title="${t.name}">
-          <img class="t-favicon" src="https://www.google.com/s2/favicons?domain=${new URL(t.url).hostname}&sz=32" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="t-icon" style="display:none">${t.icon}</span>
-          <span class="t-name">${t.name}</span>
-          <span class="t-tag">${t.tag}</span>
-        </a>
-      `).join('')}
-    </div>
-  `;
+
+  page.appendChild(makeSectionHead({ ...cat, count: cat.tools.length }, i));
+
+  const grid = document.createElement('div');
+  grid.className = 'grid';
+  cat.tools.forEach(t => grid.appendChild(makeCard(t, cat.color, cat.name)));
+  page.appendChild(grid);
+
   mainEl.appendChild(page);
 });
 
@@ -559,65 +664,107 @@ searchPage.className = 'page';
 searchPage.id = 'p-search';
 mainEl.appendChild(searchPage);
 
-const searchInput = document.getElementById('search');
-let lastActiveId = cats[0].id;
+// ── Search ────────────────────────────────────────────────────────────────────
+const searchEl    = document.getElementById('search');
+const shortcutEl  = document.getElementById('search-shortcut');
+const clearBtn    = document.getElementById('search-clear');
+let lastActiveId  = cats[0].id;
 
-function renderSearchResults(query) {
+function renderSearch(query) {
   const q = query.toLowerCase().trim();
-  const allTools = cats.flatMap(cat => cat.tools.map(t => ({ ...t, catName: cat.name })));
-  const results = allTools.filter(t =>
-    t.name.toLowerCase().includes(q) || t.tag.toLowerCase().includes(q) || t.catName.toLowerCase().includes(q)
-  );
-  searchPage.innerHTML = `
-    <div class="page-header">
-      <h1>🔍 Risultati per "${query}"</h1>
-      <p>${results.length} tool trovati</p>
-    </div>
-    <div class="grid">
-      ${results.map(t => `
-        <a class="tool" href="${t.url}" target="_blank" rel="noopener noreferrer" style="--c:${t.c}" title="${t.name}">
-          <img class="t-favicon" src="https://www.google.com/s2/favicons?domain=${new URL(t.url).hostname}&sz=32" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="t-icon" style="display:none">${t.icon}</span>
-          <span class="t-name">${t.name}</span>
-          <span class="t-tag">${t.catName}</span>
-        </a>
-      `).join('')}
-    </div>
-  `;
-}
+  const results = [];
+  cats.forEach(cat => {
+    cat.tools.forEach(t => {
+      if (
+        t.name.toLowerCase().includes(q) ||
+        (t.tag || '').toLowerCase().includes(q) ||
+        cat.name.toLowerCase().includes(q)
+      ) {
+        results.push({ ...t, _color: cat.color, _cat: cat.name });
+      }
+    });
+  });
 
-searchInput.addEventListener('input', () => {
-  const q = searchInput.value.trim();
-  if (q.length === 0) {
-    show(lastActiveId);
+  while (searchPage.firstChild) searchPage.removeChild(searchPage.firstChild);
+
+  searchPage.appendChild(makeSectionHead(
+    {
+      name: 'Risultati per “' + query + '”',
+      desc: results.length + ' tool trovati nelle ' + cats.length + ' categorie del catalogo.',
+      count: results.length
+    },
+    0,
+    'RICERCA · NEL CATALOGO'
+  ));
+
+  if (results.length === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'empty';
+    empty.textContent = 'Nessun tool trovato.';
+    searchPage.appendChild(empty);
     return;
   }
-  renderSearchResults(q);
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
-  searchPage.classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const grid = document.createElement('div');
+  grid.className = 'grid';
+  results.forEach(t => grid.appendChild(makeCard(t, t._color, t._cat)));
+  searchPage.appendChild(grid);
+}
+
+searchEl.addEventListener('input', () => {
+  const q = searchEl.value.trim();
+  const hasVal = !!searchEl.value;
+  shortcutEl.style.display = hasVal ? 'none' : '';
+  clearBtn.style.display   = hasVal ? '' : 'none';
+
+  if (!q) { show(lastActiveId); return; }
+
+  renderSearch(q);
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('is-active'));
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('is-active'));
+  searchPage.classList.add('is-active');
 });
 
+clearBtn.addEventListener('click', () => {
+  searchEl.value = '';
+  searchEl.dispatchEvent(new Event('input'));
+  searchEl.focus();
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === '/' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+    e.preventDefault();
+    searchEl.focus();
+  }
+  if (e.key === 'Escape' && document.activeElement === searchEl) {
+    searchEl.value = '';
+    searchEl.dispatchEvent(new Event('input'));
+    searchEl.blur();
+  }
+});
+
+// ── Navigation ────────────────────────────────────────────────────────────────
 function show(id) {
   const validId = cats.find(c => c.id === id) ? id : cats[0].id;
   lastActiveId = validId;
-  searchInput.value = '';
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
-  document.getElementById('p-' + validId).classList.add('active');
-  document.querySelector(`[data-id="${validId}"]`).classList.add('active');
-  if (window.location.hash !== '#' + validId) window.location.hash = validId;
+  searchEl.value = '';
+  shortcutEl.style.display = '';
+  clearBtn.style.display   = 'none';
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('is-active'));
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('is-active'));
+  const page = document.getElementById('p-' + validId);
+  const tab  = document.querySelector('[data-id="' + validId + '"]');
+  if (page) page.classList.add('is-active');
+  if (tab)  tab.classList.add('is-active');
+  if (window.location.hash !== '#' + validId) history.pushState(null, '', '#' + validId);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 window.addEventListener('hashchange', () => {
-  const id = window.location.hash.slice(1);
-  show(id);
+  if (!searchEl.value.trim()) show(window.location.hash.slice(1));
 });
 
-// init from URL hash or default to first category
-const initId = window.location.hash.slice(1);
-show(initId || cats[0].id);
+show(window.location.hash.slice(1) || cats[0].id);
 </script>
 
 </body>
