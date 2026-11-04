@@ -1,0 +1,142 @@
+[
+  {
+    "name": "Game Archive",
+    "description": {
+      "it": "Archivio della collezione di videogiochi: titoli letti dalle foto degli scaffali, metadati e copertine da IGDB, sito statico di consultazione.",
+      "en": "A personal video-game collection archive: titles read from shelf photos, metadata and covers from IGDB, and a static site to browse them."
+    },
+    "tags": ["JavaScript", "SQLite"],
+    "liveUrl": "https://lukepalmdev.github.io/game-archive/",
+    "repoUrl": "https://github.com/LukePalmDev/game-archive"
+  },
+  {
+    "name": "Archivio Apple",
+    "description": {
+      "it": "Archivio indipendente dei prodotti Apple, con specifiche e confronto. Dati in JSON e CSV; sito statico, senza backend.",
+      "en": "An independent archive of Apple products, with specs and comparison. Data lives in JSON and CSV; the site is static, with no backend."
+    },
+    "tags": ["JavaScript"],
+    "liveUrl": "https://lukepalmdev.github.io/apple-archive/",
+    "repoUrl": "https://github.com/LukePalmDev/apple-archive"
+  },
+  {
+    "name": "Project Box",
+    "description": {
+      "it": "Archivio statico delle console Xbox, con una sezione per generazione. Single-page app in HTML, CSS e JavaScript.",
+      "en": "A static archive of Xbox consoles, with a section for each generation. A single-page app in HTML, CSS, and JavaScript."
+    },
+    "tags": ["JavaScript"],
+    "liveUrl": "https://lukepalmdev.github.io/xbox-archive/",
+    "repoUrl": "https://github.com/LukePalmDev/xbox-archive"
+  },
+  {
+    "name": "Xbox Scraper",
+    "description": {
+      "it": "Scraper Python del catalogo pubblico Xbox: recupera i metadati, genera un JSON dei giochi e un sito statico con ricerca, filtri e ordinamento.",
+      "en": "A Python scraper of the public Xbox catalog: it collects metadata, writes a games JSON file, and builds a static site with search, filters, and sorting."
+    },
+    "tags": ["Python"],
+    "liveUrl": "https://lukepalmdev.github.io/xbox-scraper/",
+    "repoUrl": "https://github.com/LukePalmDev/xbox-scraper"
+  },
+  {
+    "name": "Hot Wheels Hub",
+    "description": {
+      "it": "Directory di cataloghi, database e marketplace Hot Wheels, con ricerca e filtri per categoria.",
+      "en": "A directory of Hot Wheels catalogs, databases, and marketplaces, with search and category filters."
+    },
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "https://lukepalmdev.github.io/Hot-Wheels/",
+    "repoUrl": "https://github.com/LukePalmDev/Hot-Wheels"
+  },
+  {
+    "name": "Green Mecc",
+    "description": {
+      "it": "Sito del Team Green Mecc del Politecnico di Milano, single-page app in React e TypeScript.",
+      "en": "Website of Team Green Mecc at Politecnico di Milano, a React and TypeScript single-page app."
+    },
+    "tags": ["React", "TypeScript"],
+    "liveUrl": "https://lukepalmdev.github.io/green-mecc-site/",
+    "repoUrl": "https://github.com/LukePalmDev/green-mecc-site"
+  },
+  {
+    "name": "Armadio",
+    "description": {
+      "it": "App per archiviare il guardaroba per abitazione (Milano, Reggio, Sardegna), con un armadio disegnato in stile tecnico. HTML, CSS e JavaScript, senza dipendenze.",
+      "en": "An app for filing a wardrobe by home (Milan, Reggio, Sardinia), drawn as a technical closet. HTML, CSS, and JavaScript, with no dependencies."
+    },
+    "tags": ["JavaScript"],
+    "liveUrl": "https://lukepalmdev.github.io/Armadio/",
+    "repoUrl": "https://github.com/LukePalmDev/Armadio"
+  },
+  {
+    "name": "MyWA",
+    "description": {
+      "it": "Visualizzatore nel browser delle chat WhatsApp esportate in file .txt. Include chat demo; i file caricati restano nel localStorage.",
+      "en": "An in-browser viewer for WhatsApp chats exported as .txt. Demo chats are included; uploaded files stay in localStorage."
+    },
+    "tags": ["React"],
+    "liveUrl": "https://lukepalmdev.github.io/mywa/",
+    "repoUrl": "https://github.com/LukePalmDev/mywa"
+  },
+  {
+    "name": "Olimpo di VU",
+    "description": {
+      "it": "Galleria statica di dodici ritratti, ciascuno associato a una divinità dell'Olimpo.",
+      "en": "A static gallery of twelve portraits, each paired with an Olympian deity."
+    },
+    "tags": ["HTML"],
+    "liveUrl": "https://lukepalmdev.github.io/Olimpo-di-VU/",
+    "repoUrl": "https://github.com/LukePalmDev/Olimpo-di-VU"
+  },
+  {
+    "name": "CEX Price Tracker",
+    "description": {
+      "it": "Monitoraggio dei prezzi dei videogiochi usati su CEX Italia: scraping, storico in SQLite, dashboard e notifiche Telegram.",
+      "en": "Tracks used video-game prices on CEX Italy: scraping, a SQLite price history, a dashboard, and Telegram notifications."
+    },
+    "tags": ["Python", "SQLite"],
+    "liveUrl": "https://lukepalmdev.github.io/cex-price-tracker/",
+    "repoUrl": "https://github.com/LukePalmDev/cex-price-tracker"
+  },
+  {
+    "name": "Bookmarks-X",
+    "description": {
+      "it": "Sincronizza i segnalibri di X in un archivio locale e pubblica un sito statico dei post salvati, con analisi tramite Gemini.",
+      "en": "Syncs X bookmarks into a local archive and publishes a static site of saved posts, with analysis through Gemini."
+    },
+    "tags": ["Python"],
+    "liveUrl": "https://lukepalmdev.github.io/bookmarks-x/",
+    "repoUrl": "https://github.com/LukePalmDev/bookmarks-x"
+  },
+  {
+    "name": "Xbox Tracker",
+    "description": {
+      "it": "Tracker dei prezzi delle console Xbox su più fonti: scraping, classificazione degli annunci, stima del fair value e notifiche.",
+      "en": "A multi-source price tracker for Xbox consoles: scraping, listing classification, a fair-value estimate, and notifications."
+    },
+    "tags": ["Python"],
+    "liveUrl": null,
+    "repoUrl": "https://github.com/LukePalmDev/trader"
+  },
+  {
+    "name": "Prompt X",
+    "description": {
+      "it": "Estrae i prompt dai post di X e li salva come file Markdown bilingui, inglese e italiano, organizzati per argomento.",
+      "en": "Extracts prompts from X posts and saves them as bilingual Markdown files, English and Italian, organized by topic."
+    },
+    "tags": ["Python"],
+    "liveUrl": null,
+    "repoUrl": "https://github.com/LukePalmDev/code-x-prompt"
+  },
+  {
+    "name": "YT-Console",
+    "description": {
+      "it": "Pipeline Python che estrae i trascritti da playlist YouTube di recensioni di console portatili e li struttura con la Claude API.",
+      "en": "A Python pipeline that pulls transcripts from YouTube playlists of handheld-console reviews and structures them with the Claude API."
+    },
+    "tags": ["Python"],
+    "liveUrl": null,
+    "repoUrl": "https://github.com/LukePalmDev/yt-console"
+  }
+]
