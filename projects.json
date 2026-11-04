@@ -6,7 +6,7 @@
       "en": "A personal video-game collection archive: titles read from shelf photos, metadata and covers from IGDB, and a static site to browse them."
     },
     "tags": ["JavaScript", "SQLite"],
-    "liveUrl": "https://lukepalmdev.github.io/game-archive/",
+    "liveUrl": "https://games.byluke.org",
     "repoUrl": "https://github.com/LukePalmDev/game-archive"
   },
   {
@@ -16,7 +16,7 @@
       "en": "An independent archive of Apple products, with specs and comparison. Data lives in JSON and CSV; the site is static, with no backend."
     },
     "tags": ["JavaScript"],
-    "liveUrl": "https://lukepalmdev.github.io/apple-archive/",
+    "liveUrl": "https://apple.byluke.org",
     "repoUrl": "https://github.com/LukePalmDev/apple-archive"
   },
   {
@@ -26,7 +26,7 @@
       "en": "A static archive of Xbox consoles, with a section for each generation. A single-page app in HTML, CSS, and JavaScript."
     },
     "tags": ["JavaScript"],
-    "liveUrl": "https://lukepalmdev.github.io/xbox-archive/",
+    "liveUrl": "https://xbox.byluke.org",
     "repoUrl": "https://github.com/LukePalmDev/xbox-archive"
   },
   {
@@ -36,7 +36,7 @@
       "en": "A Python scraper of the public Xbox catalog: it collects metadata, writes a games JSON file, and builds a static site with search, filters, and sorting."
     },
     "tags": ["Python"],
-    "liveUrl": "https://lukepalmdev.github.io/xbox-scraper/",
+    "liveUrl": "https://scraper.byluke.org",
     "repoUrl": "https://github.com/LukePalmDev/xbox-scraper"
   },
   {
@@ -46,18 +46,8 @@
       "en": "A directory of Hot Wheels catalogs, databases, and marketplaces, with search and category filters."
     },
     "tags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "https://lukepalmdev.github.io/Hot-Wheels/",
+    "liveUrl": "https://hotwheels.byluke.org",
     "repoUrl": "https://github.com/LukePalmDev/Hot-Wheels"
-  },
-  {
-    "name": "Green Mecc",
-    "description": {
-      "it": "Sito del Team Green Mecc del Politecnico di Milano, single-page app in React e TypeScript.",
-      "en": "Website of Team Green Mecc at Politecnico di Milano, a React and TypeScript single-page app."
-    },
-    "tags": ["React", "TypeScript"],
-    "liveUrl": "https://lukepalmdev.github.io/green-mecc-site/",
-    "repoUrl": "https://github.com/LukePalmDev/green-mecc-site"
   },
   {
     "name": "Armadio",
@@ -66,18 +56,8 @@
       "en": "An app for filing a wardrobe by home (Milan, Reggio, Sardinia), drawn as a technical closet. HTML, CSS, and JavaScript, with no dependencies."
     },
     "tags": ["JavaScript"],
-    "liveUrl": "https://lukepalmdev.github.io/Armadio/",
+    "liveUrl": "https://armadio.byluke.org",
     "repoUrl": "https://github.com/LukePalmDev/Armadio"
-  },
-  {
-    "name": "MyWA",
-    "description": {
-      "it": "Visualizzatore nel browser delle chat WhatsApp esportate in file .txt. Include chat demo; i file caricati restano nel localStorage.",
-      "en": "An in-browser viewer for WhatsApp chats exported as .txt. Demo chats are included; uploaded files stay in localStorage."
-    },
-    "tags": ["React"],
-    "liveUrl": "https://lukepalmdev.github.io/mywa/",
-    "repoUrl": "https://github.com/LukePalmDev/mywa"
   },
   {
     "name": "Olimpo di VU",
@@ -86,7 +66,7 @@
       "en": "A static gallery of twelve portraits, each paired with an Olympian deity."
     },
     "tags": ["HTML"],
-    "liveUrl": "https://lukepalmdev.github.io/Olimpo-di-VU/",
+    "liveUrl": "https://olimpo.byluke.org",
     "repoUrl": "https://github.com/LukePalmDev/Olimpo-di-VU"
   },
   {
@@ -96,7 +76,7 @@
       "en": "Tracks used video-game prices on CEX Italy: scraping, a SQLite price history, a dashboard, and Telegram notifications."
     },
     "tags": ["Python", "SQLite"],
-    "liveUrl": "https://lukepalmdev.github.io/cex-price-tracker/",
+    "liveUrl": "https://cex.byluke.org",
     "repoUrl": "https://github.com/LukePalmDev/cex-price-tracker"
   },
   {
@@ -106,8 +86,18 @@
       "en": "Syncs X bookmarks into a local archive and publishes a static site of saved posts, with analysis through Gemini."
     },
     "tags": ["Python"],
-    "liveUrl": "https://lukepalmdev.github.io/bookmarks-x/",
+    "liveUrl": "https://bookmarks.byluke.org",
     "repoUrl": "https://github.com/LukePalmDev/bookmarks-x"
+  },
+  {
+    "name": "AI Catalog",
+    "description": {
+      "it": "Catalogo curato di circa 93 strumenti di intelligenza artificiale, organizzati in 10 categorie e aggiornato a mano.",
+      "en": "A curated catalog of about 93 AI tools, organized into 10 categories and updated by hand."
+    },
+    "tags": ["HTML"],
+    "liveUrl": "https://ai.byluke.org",
+    "repoUrl": "https://github.com/LukePalmDev/ai-catalog"
   },
   {
     "name": "Xbox Tracker",
