@@ -118,15 +118,5 @@
     "tags": ["Python"],
     "liveUrl": null,
     "repoUrl": "https://github.com/LukePalmDev/code-x-prompt"
-  },
-  {
-    "name": "YT-Console",
-    "description": {
-      "it": "Pipeline Python che estrae i trascritti da playlist YouTube di recensioni di console portatili e li struttura con la Claude API.",
-      "en": "A Python pipeline that pulls transcripts from YouTube playlists of handheld-console reviews and structures them with the Claude API."
-    },
-    "tags": ["Python"],
-    "liveUrl": null,
-    "repoUrl": "https://github.com/LukePalmDev/yt-console"
   }
 ]
