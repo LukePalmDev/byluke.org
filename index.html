@@ -5,11 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luke Palmieri — byluke.org</title>
   <meta name="description" content="Luke Palmieri, studente di Economia all'Università degli Studi di Milano. Progetti personali: archivi, siti e strumenti.">
+  <link rel="canonical" href="https://byluke.org">
+  <meta property="og:site_name" content="byluke.org">
   <meta property="og:title" content="Luke Palmieri — byluke.org">
   <meta property="og:description" content="Studente di Economia all'Università degli Studi di Milano. Progetti personali: archivi, siti e strumenti.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://byluke.org">
-  <link rel="canonical" href="https://byluke.org">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image" content="https://byluke.org/og.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Luke Palmieri — byluke.org. Archivi, siti e strumenti.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Luke Palmieri — byluke.org">
+  <meta name="twitter:description" content="Studente di Economia all'Università degli Studi di Milano. Progetti personali: archivi, siti e strumenti.">
+  <meta name="twitter:image" content="https://byluke.org/og.png">
+  <meta name="twitter:image:alt" content="Luke Palmieri — byluke.org. Archivi, siti e strumenti.">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://byluke.org/#person",
+          "name": "Luke Palmieri",
+          "url": "https://byluke.org",
+          "description": "Studente di Economia all'Università degli Studi di Milano. Costruisce progetti personali: archivi, siti e strumenti.",
+          "sameAs": ["https://github.com/LukePalmDev"],
+          "affiliation": {
+            "@type": "EducationalOrganization",
+            "name": "Università degli Studi di Milano"
+          },
+          "knowsLanguage": ["it", "en"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://byluke.org/#website",
+          "name": "Luke Palmieri — byluke.org",
+          "alternateName": "byluke.org",
+          "url": "https://byluke.org",
+          "description": "Progetti personali di Luke Palmieri: archivi, siti e strumenti.",
+          "inLanguage": ["it", "en"],
+          "publisher": { "@id": "https://byluke.org/#person" }
+        }
+      ]
+    }
+  </script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231c1915'/><text x='16' y='22' text-anchor='middle' font-size='14' font-family='Georgia,serif' fill='%23f3f0e8'>LP</text></svg>">
   <link rel="stylesheet" href="styles.css">
   <script src="theme-init.js"></script>
@@ -33,7 +76,187 @@
         <h1>Luke Palmieri</h1>
         <p class="tagline" id="tagline">Studente di Economia all'Università degli Studi di Milano. Costruisce progetti personali: archivi, siti e strumenti.</p>
       </section>
-      <div id="progetti"></div>
+      <div id="progetti">
+        <!-- projects:start -->
+        <section class="group" aria-labelledby="heading-sites">
+          <div class="group-head">
+            <h2 id="heading-sites">Siti</h2>
+            <span class="count">10</span>
+            <p>Pubblicati su GitHub Pages.</p>
+          </div>
+          <div class="grid">
+            <article class="card">
+              <div class="card-top">
+                <h3>Game Archive</h3>
+                <ul class="tags">
+                  <li>JavaScript</li>
+                  <li>SQLite</li>
+                </ul>
+              </div>
+              <p>Archivio della collezione di videogiochi: titoli letti dalle foto degli scaffali, metadati e copertine da IGDB, sito statico di consultazione.</p>
+              <p class="card-links">
+                <a class="link-live" href="https://games.byluke.org">Sito</a>
+                <a class="link-repo" href="https://github.com/LukePalmDev/game-archive">GitHub</a>
+              </p>
+            </article>
+            <article class="card">
+              <div class="card-top">
+                <h3>Archivio Apple</h3>
+                <ul class="tags">
+                  <li>JavaScript</li>
+                </ul>
+              </div>
+              <p>Archivio indipendente dei prodotti Apple, con specifiche e confronto. Dati in JSON e CSV; sito statico, senza backend.</p>
+              <p class="card-links">
+                <a class="link-live" href="https://apple.byluke.org">Sito</a>
+                <a class="link-repo" href="https://github.com/LukePalmDev/apple-archive">GitHub</a>
+              </p>
+            </article>
+            <article class="card">
+              <div class="card-top">
+                <h3>Project Box</h3>
+                <ul class="tags">
+                  <li>JavaScript</li>
+                </ul>
+              </div>
+              <p>Archivio statico delle console Xbox, con una sezione per generazione. Single-page app in HTML, CSS e JavaScript.</p>
+              <p class="card-links">
+                <a class="link-live" href="https://xbox.byluke.org">Sito</a>
+                <a class="link-repo" href="https://github.com/LukePalmDev/xbox-archive">GitHub</a>
+              </p>
+            </article>
+            <article class="card">
+              <div class="card-top">
+                <h3>Xbox Scraper</h3>
+                <ul class="tags">
+                  <li>Python</li>
+                </ul>
+              </div>
+              <p>Scraper Python del catalogo pubblico Xbox: recupera i metadati, genera un JSON dei giochi e un sito statico con ricerca, filtri e ordinamento.</p>
+              <p class="card-links">
+                <a class="link-live" href="https://scraper.byluke.org">Sito</a>
+                <a class="link-repo" href="https://github.com/LukePalmDev/xbox-scraper">GitHub</a>
+              </p>
+            </article>
+            <article class="card">
+              <div class="card-top">
+                <h3>Hot Wheels Hub</h3>
+                <ul class="tags">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                </ul>
+              </div>
+              <p>Directory di cataloghi, database e marketplace Hot Wheels, con ricerca e filtri per categoria.</p>
+              <p class="card-links">
+                <a class="link-live" href="https://hotwheels.byluke.org">Sito</a>
+                <a class="link-repo" href="https://github.com/LukePalmDev/Hot-Wheels">GitHub</a>
+              </p>
+            </article>
+            <article class="card">
+              <div class="card-top">
+                <h3>Armadio</h3>
+                <ul class="tags">
+                  <li>JavaScript</li>
+                </ul>
+              </div>
+              <p>App per archiviare il guardaroba per abitazione (Milano, Reggio, Sardegna), con un armadio disegnato in stile tecnico. HTML, CSS e JavaScript, senza dipendenze.</p>
+              <p class="card-links">
+                <a class="link-live" href="https://armadio.byluke.org">Sito</a>
+                <a class="link-repo" href="https://github.com/LukePalmDev/Armadio">GitHub</a>
+              </p>
+            </article>
+            <article class="card">
+              <div class="card-top">
+                <h3>Olimpo di VU</h3>
+                <ul class="tags">
+                  <li>HTML</li>
+                </ul>
+              </div>
+              <p>Galleria statica di dodici ritratti, ciascuno associato a una divinità dell&#x27;Olimpo.</p>
+              <p class="card-links">
+                <a class="link-live" href="https://olimpo.byluke.org">Sito</a>
+                <a class="link-repo" href="https://github.com/LukePalmDev/Olimpo-di-VU">GitHub</a>
+              </p>
+            </article>
+            <article class="card">
+              <div class="card-top">
+                <h3>CEX Price Tracker</h3>
+                <ul class="tags">
+                  <li>Python</li>
+                  <li>SQLite</li>
+                </ul>
+              </div>
+              <p>Monitoraggio dei prezzi dei videogiochi usati su CEX Italia: scraping, storico in SQLite, dashboard e notifiche Telegram.</p>
+              <p class="card-links">
+                <a class="link-live" href="https://cex.byluke.org">Sito</a>
+                <a class="link-repo" href="https://github.com/LukePalmDev/cex-price-tracker">GitHub</a>
+              </p>
+            </article>
+            <article class="card">
+              <div class="card-top">
+                <h3>Bookmarks-X</h3>
+                <ul class="tags">
+                  <li>Python</li>
+                </ul>
+              </div>
+              <p>Sincronizza i segnalibri di X in un archivio locale e pubblica un sito statico dei post salvati, con analisi tramite Gemini.</p>
+              <p class="card-links">
+                <a class="link-live" href="https://bookmarks.byluke.org">Sito</a>
+                <a class="link-repo" href="https://github.com/LukePalmDev/bookmarks-x">GitHub</a>
+              </p>
+            </article>
+            <article class="card">
+              <div class="card-top">
+                <h3>AI Catalog</h3>
+                <ul class="tags">
+                  <li>HTML</li>
+                </ul>
+              </div>
+              <p>Catalogo curato di circa 93 strumenti di intelligenza artificiale, organizzati in 10 categorie e aggiornato a mano.</p>
+              <p class="card-links">
+                <a class="link-live" href="https://ai.byluke.org">Sito</a>
+                <a class="link-repo" href="https://github.com/LukePalmDev/ai-catalog">GitHub</a>
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="group" aria-labelledby="heading-code">
+          <div class="group-head">
+            <h2 id="heading-code">Codice</h2>
+            <span class="count">2</span>
+            <p>Senza sito pubblico: solo il repository.</p>
+          </div>
+          <div class="grid">
+            <article class="card">
+              <div class="card-top">
+                <h3>Xbox Tracker</h3>
+                <ul class="tags">
+                  <li>Python</li>
+                </ul>
+              </div>
+              <p>Tracker dei prezzi delle console Xbox su più fonti: scraping, classificazione degli annunci, stima del fair value e notifiche.</p>
+              <p class="card-links">
+                <a class="link-repo" href="https://github.com/LukePalmDev/trader">GitHub</a>
+              </p>
+            </article>
+            <article class="card">
+              <div class="card-top">
+                <h3>Prompt X</h3>
+                <ul class="tags">
+                  <li>Python</li>
+                </ul>
+              </div>
+              <p>Estrae i prompt dai post di X e li salva come file Markdown bilingui, inglese e italiano, organizzati per argomento.</p>
+              <p class="card-links">
+                <a class="link-repo" href="https://github.com/LukePalmDev/code-x-prompt">GitHub</a>
+              </p>
+            </article>
+          </div>
+        </section>
+        <!-- projects:end -->
+      </div>
     </main>
 
     <footer class="footer">

@@ -164,6 +164,18 @@ body {
   padding: 2.6rem 0 1.4rem;
 }
 
+.missing .domain {
+  margin-bottom: 0.85rem;
+}
+
+.missing .tagline + .tagline {
+  margin-top: 0.35rem;
+}
+
+.missing .card-links {
+  margin-top: 1.5rem;
+}
+
 h1 {
   margin: 0 0 0.7rem;
   font-family: var(--serif);
