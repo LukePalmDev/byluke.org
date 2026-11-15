@@ -173,6 +173,7 @@
 
   function showError() {
     applyChrome();
+    if (listEl.querySelector(".card")) return;
     listEl.replaceChildren();
     var note = document.createElement("p");
     note.className = "error";
@@ -195,7 +196,8 @@
   langButtons.forEach(function (button) {
     button.addEventListener("click", function () {
       lang = button.getAttribute("data-lang") === "en" ? "en" : "it";
-      render();
+      if (projects.length) render();
+      else applyChrome();
     });
   });
 
@@ -207,7 +209,7 @@
       return response.json();
     })
     .then(function (data) {
-      if (!Array.isArray(data)) throw new Error("format");
+      if (!Array.isArray(data) || !data.length) throw new Error("format");
       projects = data;
       render();
     })
