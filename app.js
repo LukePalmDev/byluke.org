@@ -9,6 +9,7 @@
       codeLead: "Senza sito pubblico: solo il repository.",
       live: "Sito",
       repo: "GitHub",
+      privateNote: "Il codice è privato.",
       themeToDark: "Tema scuro",
       themeToLight: "Tema chiaro",
       langLabel: "Lingua",
@@ -24,6 +25,7 @@
       codeLead: "No public site: repository only.",
       live: "Site",
       repo: "GitHub",
+      privateNote: "The code is private.",
       themeToDark: "Dark theme",
       themeToLight: "Light theme",
       langLabel: "Language",
@@ -112,9 +114,16 @@
       live.className = "link-live";
       links.appendChild(live);
     }
-    var repo = link(project.repoUrl, strings.repo);
-    repo.className = "link-repo";
-    links.appendChild(repo);
+    if (project.repoUrl) {
+      var repo = link(project.repoUrl, strings.repo);
+      repo.className = "link-repo";
+      links.appendChild(repo);
+    } else {
+      var note = document.createElement("span");
+      note.className = "card-note";
+      note.textContent = strings.privateNote;
+      links.appendChild(note);
+    }
 
     article.appendChild(top);
     article.appendChild(description);
