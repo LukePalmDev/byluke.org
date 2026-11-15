@@ -47,13 +47,17 @@ def card_lines(project):
     lines.append(line(7, f"<p>{esc(description(project))}</p>"))
     lines.append(line(7, '<p class="card-links">'))
     live = project.get("liveUrl")
+    repo = project.get("repoUrl")
     if live:
         lines.append(
             line(8, f'<a class="link-live" href="{esc(live)}">Sito</a>')
         )
-    lines.append(
-        line(8, f'<a class="link-repo" href="{esc(project["repoUrl"])}">GitHub</a>')
-    )
+    if repo:
+        lines.append(
+            line(8, f'<a class="link-repo" href="{esc(repo)}">GitHub</a>')
+        )
+    else:
+        lines.append(line(8, '<span class="card-note">Il codice è privato.</span>'))
     lines.extend(
         [
             line(7, "</p>"),
