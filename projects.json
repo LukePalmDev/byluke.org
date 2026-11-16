@@ -100,6 +100,16 @@
     "repoUrl": "https://github.com/LukePalmDev/ai-catalog"
   },
   {
+    "name": "MusicRemix",
+    "description": {
+      "it": "Remix salsa di Exotica e pagina per costruire la coreografia: pentagramma a basi, player e mosse. L'audio non è incluso.",
+      "en": "A salsa remix of Exotica and a page for building the choreography: a staff of bases, a player, and the moves. The audio is not included."
+    },
+    "tags": ["JavaScript"],
+    "liveUrl": "https://musicremix.byluke.org",
+    "repoUrl": "https://github.com/LukePalmDev/MusicRemix"
+  },
+  {
     "name": "Xbox Tracker",
     "description": {
       "it": "Tracker dei prezzi delle console Xbox su più fonti: scraping, classificazione degli annunci, stima del fair value e notifiche.",
